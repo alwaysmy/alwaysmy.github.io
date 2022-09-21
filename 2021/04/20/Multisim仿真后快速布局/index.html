@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"alwaysmy.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Multisim仿真画板一气呵成首先需要了解的 multisim和ultiboard是一套产品，在安装multisim的时候基本都会安装。其中multisim用于原理图和仿真，ultiboard用于PCB.   在multisim仿真中，往往会仿真一些模块不是特别复杂但是需要做出来，如果脑补或者用别的软件又略麻烦，于是有了下文。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Multisim仿真画板一气呵成">
+<meta property="og:url" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/index.html">
+<meta property="og:site_name" content="番茄条·红烧牛腩肉">
+<meta property="og:description" content="Multisim仿真画板一气呵成首先需要了解的 multisim和ultiboard是一套产品，在安装multisim的时候基本都会安装。其中multisim用于原理图和仿真，ultiboard用于PCB.   在multisim仿真中，往往会仿真一些模块不是特别复杂但是需要做出来，如果脑补或者用别的软件又略麻烦，于是有了下文。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213000992.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213413695.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213816011.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210319223305830.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210319223543410.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313214659220.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210319223412654.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313214839186.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210420001109403.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210420001054814.png">
+<meta property="article:published_time" content="2021-04-19T16:15:50.000Z">
+<meta property="article:modified_time" content="2022-09-21T20:12:23.064Z">
+<meta property="article:author" content="Always L">
+<meta property="article:tag" content="Mulstisim PCB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213000992.png">
+
+<link rel="canonical" href="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Multisim仿真画板一气呵成 | 番茄条·红烧牛腩肉</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">番茄条·红烧牛腩肉</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">无声无息</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">5</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Always L">
+      <meta itemprop="description" content="硬件，杂项，爱好">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="番茄条·红烧牛腩肉">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Multisim仿真画板一气呵成
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-20 00:15:50" itemprop="dateCreated datePublished" datetime="2021-04-20T00:15:50+08:00">2021-04-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-22 04:12:23" itemprop="dateModified" datetime="2022-09-22T04:12:23+08:00">2022-09-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Work-with-the-world/" itemprop="url" rel="index"><span itemprop="name">Work with the world</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Multisim仿真画板一气呵成"><a href="#Multisim仿真画板一气呵成" class="headerlink" title="Multisim仿真画板一气呵成"></a>Multisim仿真画板一气呵成</h1><h2 id="首先需要了解的"><a href="#首先需要了解的" class="headerlink" title="首先需要了解的"></a>首先需要了解的</h2><ul>
+<li><p>multisim和ultiboard是一套产品，在安装multisim的时候基本都会安装。其中multisim用于原理图和仿真，ultiboard用于PCB. </p>
+</li>
+<li><p>在multisim仿真中，往往会仿真一些模块不是特别复杂但是需要做出来，如果脑补或者用别的软件又略麻烦，于是有了下文。</p>
+</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="步骤1：仿真原理图与添加封装"><a href="#步骤1：仿真原理图与添加封装" class="headerlink" title="步骤1：仿真原理图与添加封装"></a>步骤1：仿真原理图与添加封装</h2><p>首先当然是绘制原理图。</p>
+<p>在绘制原理图的时候，除了必要的元件之外，还可以添加连接件例如排针。在器件库中选择Connectors，选择All families后搜索HDR</p>
+<p>,看到HDR1x10,这个就是10pin的2.54mm排针，这里可以找到HDR1x2进行添加。</p>
+<p>如下图:</p>
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213000992.png" alt="image-20210313213000992" style="zoom:67%;">
+
+<p>然后可以看到上图中的R3为黑色，其余元件有别的颜色，如电阻电容的蓝色。</p>
+<p>因为有颜色的是添加了封装。对于具体的器件，有的器件包含默认封装，但是这种基本器件需要自己选择。</p>
+<p>双击元件：</p>
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213413695.png" alt="image-20210313213413695" style="zoom:67%;">
+
+<p>可以edit package ,进入之后可以挑选一个封装，排序是字母（没找到怎么快点找到，下版改进）。</p>
+<p>由于主要用于快速参考或者洞洞板焊接，阻容封装通常可以随意一点。</p>
+<p>只需要把自己需要焊接的器件添加封装，不添加封装的不会出现在板子中。</p>
+<h2 id="步骤2：元件布局"><a href="#步骤2：元件布局" class="headerlink" title="步骤2：元件布局"></a>步骤2：元件布局</h2><p>添加封装之后，点击transfer，当然这里也可以导出网表用别的软件来画，这里本来就是为了省事，就直接点击transfer to Ultiboard 14.0.</p>
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213816011.png" alt="image-20210313213816011" style="zoom:67%;">
+
+<p>你会得到一个ewprj后缀的文件，这时候器件都在底下了，但是还没有连线，首先用鼠标移动器件进行摆放，Ctrl+R可以旋转。</p>
+<p>或者使用自动摆放 ：顶部Autoplace parts.</p>
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210319223305830.png" alt="image-20210319223305830" style="zoom:67%;">
+
+<h2 id="3D-预览"><a href="#3D-预览" class="headerlink" title="3D 预览"></a>3D 预览</h2><p>下面这个选项可以查看3D,鼠标左键拖动</p>
+<p><img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210319223543410.png" alt="image-20210319223543410"></p>
+<p>3D 是个新窗口，直接右上角关掉就回到了二维</p>
+<p>摆放完成之后，点击Place，点击Line（或者快捷键Ctrl+Shift+L），对元件引脚连接用于自己连线参考。</p>
+<p>由于是作为洞洞板参考，最好单层。如下，比较随意：</p>
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313214659220.png" alt="image-20210313214659220" style="zoom:67%;">
+
+<p>也可以使用自动布线然后手动修改：在一个自动布线的教程中，在开始还做了这个，不知道具体含义：</p>
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210319223412654.png" alt="image-20210319223412654" style="zoom:67%;">
+
+<p>去掉了这个钩（在options-pcb properties里面）。</p>
+<p>然后可以进行autoRoute。</p>
+<p>洞洞板是2.54mm间距的洞洞，即100mil，为了方便，可以在菜单Edit-Properties，点击第二个Grid &amp;units，修改栅格为100mil或者50mil。</p>
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313214839186.png" alt="image-20210313214839186" style="zoom:67%;">
+
+<p>到这里就可以参考这个布局进行洞洞板的焊接，当然有兴趣也可以用这个出PCB。</p>
+<p>左侧选择Board Outline 可以绘制边框。</p>
+<p>这个还提供了一个功能就是全选pcb内的内容可以直接复制到word里面为图片：</p>
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210420001109403.png" alt="image-20210420001109403" style="zoom:67%;">
+
+<p>选到铜皮层，然后place graphics 选择类型可以添加覆铜。</p>
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210420001054814.png" alt="image-20210420001054814" style="zoom:67%;">
+
+<h2 id="步骤3：导出gerber（额外）"><a href="#步骤3：导出gerber（额外）" class="headerlink" title="步骤3：导出gerber（额外）"></a>步骤3：导出gerber（额外）</h2><p>导出gerber比较坑，按照默认选项导出有钻孔也有光绘，用gerber预览看见也应该是正确的，但是在嘉立创下单助手里面不能识别。。。。</p>
+<p>这里用用kicad的gerbview导入ultiboard导出的gerber文件，导出到pcb_new,选择正确的层，有些没有就不选，然后可能需要到到kicad里面整理一下边框重新导出是可以使用的，没有琢磨出来能直接导出可以识别的Gerber的方法.</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>由于直接使用原理图的网络，这里焊接只要不连接错网络，在洞洞板焊接中不容易出错，同时对于元件引脚分配好封装之后不需要再查找对应关系，比较方便快速。对于一些小板子，直接用multisim出图也快一点。</p>
+<h2 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h2><p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/6ee157d028ea81c758f5786e.html">PCB版图设计(Ultiboard) - 百度文库 (baidu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ece.ubc.ca/~robertor/Links_files/Files/Ultiboard-tut-Exporting-Gerber-Files.pdf">https://www.ece.ubc.ca/~robertor/Links_files/Files/Ultiboard-tut-Exporting-Gerber-Files.pdf</a></p>
+<p><a target="_blank" rel="noopener" href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000YG0FCAW&amp;l=zh-CN">https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000YG0FCAW&amp;l=zh-CN</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Mulstisim-PCB/" rel="tag"># Mulstisim PCB</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/" rel="prev" title="单片机学习入门（一）">
+      <i class="fa fa-chevron-left"></i> 单片机学习入门（一）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/10/10/SD%E7%9F%A5%E8%AF%86%E6%A0%91/" rel="next" title="SD知识树">
+      SD知识树 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Multisim%E4%BB%BF%E7%9C%9F%E7%94%BB%E6%9D%BF%E4%B8%80%E6%B0%94%E5%91%B5%E6%88%90"><span class="nav-number">1.</span> <span class="nav-text">Multisim仿真画板一气呵成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84"><span class="nav-number">1.1.</span> <span class="nav-text">首先需要了解的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A41%EF%BC%9A%E4%BB%BF%E7%9C%9F%E5%8E%9F%E7%90%86%E5%9B%BE%E4%B8%8E%E6%B7%BB%E5%8A%A0%E5%B0%81%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">步骤1：仿真原理图与添加封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A42%EF%BC%9A%E5%85%83%E4%BB%B6%E5%B8%83%E5%B1%80"><span class="nav-number">1.3.</span> <span class="nav-text">步骤2：元件布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3D-%E9%A2%84%E8%A7%88"><span class="nav-number">1.4.</span> <span class="nav-text">3D 预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A43%EF%BC%9A%E5%AF%BC%E5%87%BAgerber%EF%BC%88%E9%A2%9D%E5%A4%96%EF%BC%89"><span class="nav-number">1.5.</span> <span class="nav-text">步骤3：导出gerber（额外）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E7%BD%91%E5%9D%80"><span class="nav-number">1.7.</span> <span class="nav-text">参考网址</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Always L</p>
+  <div class="site-description" itemprop="description">硬件，杂项，爱好</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Always L</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
