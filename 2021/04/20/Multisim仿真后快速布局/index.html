@@ -17,34 +17,34 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"always_one.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"alwaysmy.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="Multisim仿真画板一气呵成首先需要了解的 multisim和ultiboard是一套产品，在安装multisim的时候基本都会安装。其中multisim用于原理图和仿真，ultiboard用于PCB.   在multisim仿真中，往往会仿真一些模块不是特别复杂但是需要做出来，如果脑补或者用别的软件又略麻烦，于是有了下文。   步骤1：仿真原理图与添加封装首先当然是绘制原理图。 在绘制原理图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Multisim仿真画板一气呵成">
-<meta property="og:url" content="https://always_one.gitee.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/index.html">
-<meta property="og:site_name" content="番茄条红烧牛腩肉">
+<meta property="og:url" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/index.html">
+<meta property="og:site_name" content="番茄条·红烧牛腩肉">
 <meta property="og:description" content="Multisim仿真画板一气呵成首先需要了解的 multisim和ultiboard是一套产品，在安装multisim的时候基本都会安装。其中multisim用于原理图和仿真，ultiboard用于PCB.   在multisim仿真中，往往会仿真一些模块不是特别复杂但是需要做出来，如果脑补或者用别的软件又略麻烦，于是有了下文。   步骤1：仿真原理图与添加封装首先当然是绘制原理图。 在绘制原理图">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://always_one.gitee.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213000992.png">
-<meta property="og:image" content="https://always_one.gitee.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213413695.png">
-<meta property="og:image" content="https://always_one.gitee.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213816011.png">
-<meta property="og:image" content="https://always_one.gitee.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210319223305830.png">
-<meta property="og:image" content="https://always_one.gitee.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210319223543410.png">
-<meta property="og:image" content="https://always_one.gitee.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313214659220.png">
-<meta property="og:image" content="https://always_one.gitee.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210319223412654.png">
-<meta property="og:image" content="https://always_one.gitee.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313214839186.png">
-<meta property="og:image" content="https://always_one.gitee.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210420001109403.png">
-<meta property="og:image" content="https://always_one.gitee.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210420001054814.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213000992.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213413695.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213816011.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210319223305830.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210319223543410.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313214659220.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210319223412654.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313214839186.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210420001109403.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210420001054814.png">
 <meta property="article:published_time" content="2021-04-19T16:15:50.000Z">
-<meta property="article:modified_time" content="2021-04-19T16:19:20.816Z">
+<meta property="article:modified_time" content="2021-05-15T14:27:13.739Z">
 <meta property="article:author" content="Always L">
 <meta property="article:tag" content="Mulstisim PCB">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://always_one.gitee.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213000992.png">
+<meta name="twitter:image" content="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213000992.png">
 
-<link rel="canonical" href="https://always_one.gitee.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/">
+<link rel="canonical" href="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/">
 
 
 <script id="page-configurations">
@@ -57,7 +57,7 @@
   };
 </script>
 
-  <title>Multisim仿真画板一气呵成 | 番茄条红烧牛腩肉</title>
+  <title>Multisim仿真画板一气呵成 | 番茄条·红烧牛腩肉</title>
   
 
 
@@ -108,7 +108,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">番茄条红烧牛腩肉</h1>
+      <h1 class="site-title">番茄条·红烧牛腩肉</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
       <p class="site-subtitle" itemprop="description">无声无息</p>
@@ -137,7 +137,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">6</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">5</span></a>
 
   </li>
   </ul>
@@ -168,7 +168,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://always_one.gitee.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/">
+    <link itemprop="mainEntityOfPage" href="https://alwaysmy.github.io/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -177,7 +177,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="番茄条红烧牛腩肉">
+      <meta itemprop="name" content="番茄条·红烧牛腩肉">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -190,10 +190,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-20 00:15:50 / 修改时间：00:19:20" itemprop="dateCreated datePublished" datetime="2021-04-20T00:15:50+08:00">2021-04-20</time>
+              <time title="创建时间：2021-04-20 00:15:50" itemprop="dateCreated datePublished" datetime="2021-04-20T00:15:50+08:00">2021-04-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-15 22:27:13" itemprop="dateModified" datetime="2021-05-15T22:27:13+08:00">2021-05-15</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -269,9 +275,10 @@
 
 <h2 id="步骤3：导出gerber（额外）"><a href="#步骤3：导出gerber（额外）" class="headerlink" title="步骤3：导出gerber（额外）"></a>步骤3：导出gerber（额外）</h2><p>导出gerber比较坑，按照默认选项导出有钻孔也有光绘，用gerber预览看见也应该是正确的，但是在嘉立创下单助手里面不能识别。。。。</p>
 <p>这里用用kicad的gerbview导入ultiboard导出的gerber文件，导出到pcb_new,选择正确的层，有些没有就不选，然后可能需要到到kicad里面整理一下边框重新导出是可以使用的，没有琢磨出来能直接导出可以识别的Gerber的方法.</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://www.ece.ubc.ca/~robertor/Links_files/Files/Ultiboard-tut-Exporting-Gerber-Files.pdf">https://www.ece.ubc.ca/~robertor/Links_files/Files/Ultiboard-tut-Exporting-Gerber-Files.pdf</a></p>
-<p><a target="_blank" rel="noopener" href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000YG0FCAW&amp;l=zh-CN">https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000YG0FCAW&amp;l=zh-CN</a></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>由于直接使用原理图的网络，这里焊接只要不连接错网络，在洞洞板焊接中不容易出错，同时对于元件引脚分配好封装之后不需要再查找对应关系，比较方便快速。对于一些小板子，直接用multisim出图也快一点。</p>
+<h2 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h2><p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/6ee157d028ea81c758f5786e.html">PCB版图设计(Ultiboard) - 百度文库 (baidu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ece.ubc.ca/~robertor/Links_files/Files/Ultiboard-tut-Exporting-Gerber-Files.pdf">https://www.ece.ubc.ca/~robertor/Links_files/Files/Ultiboard-tut-Exporting-Gerber-Files.pdf</a></p>
+<p><a target="_blank" rel="noopener" href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000YG0FCAW&amp;l=zh-CN">https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000YG0FCAW&amp;l=zh-CN</a></p>
 
     </div>
 
@@ -290,10 +297,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/04/20/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84MSP430%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="prev" title="从零开始的MSP430单片机学习（二）">
-      <i class="fa fa-chevron-left"></i> 从零开始的MSP430单片机学习（二）
+    <a href="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/" rel="prev" title="单片机学习入门（一）">
+      <i class="fa fa-chevron-left"></i> 单片机学习入门（一）
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/10/10/SD%E7%9F%A5%E8%AF%86%E6%A0%91/" rel="next" title="SD知识树">
+      SD知识树 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -352,7 +362,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Multisim%E4%BB%BF%E7%9C%9F%E7%94%BB%E6%9D%BF%E4%B8%80%E6%B0%94%E5%91%B5%E6%88%90"><span class="nav-number">1.</span> <span class="nav-text">Multisim仿真画板一气呵成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84"><span class="nav-number">1.1.</span> <span class="nav-text">首先需要了解的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A41%EF%BC%9A%E4%BB%BF%E7%9C%9F%E5%8E%9F%E7%90%86%E5%9B%BE%E4%B8%8E%E6%B7%BB%E5%8A%A0%E5%B0%81%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">步骤1：仿真原理图与添加封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A42%EF%BC%9A%E5%85%83%E4%BB%B6%E5%B8%83%E5%B1%80"><span class="nav-number">1.3.</span> <span class="nav-text">步骤2：元件布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3D-%E9%A2%84%E8%A7%88"><span class="nav-number">1.4.</span> <span class="nav-text">3D 预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A43%EF%BC%9A%E5%AF%BC%E5%87%BAgerber%EF%BC%88%E9%A2%9D%E5%A4%96%EF%BC%89"><span class="nav-number">1.5.</span> <span class="nav-text">步骤3：导出gerber（额外）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.6.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Multisim%E4%BB%BF%E7%9C%9F%E7%94%BB%E6%9D%BF%E4%B8%80%E6%B0%94%E5%91%B5%E6%88%90"><span class="nav-number">1.</span> <span class="nav-text">Multisim仿真画板一气呵成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84"><span class="nav-number">1.1.</span> <span class="nav-text">首先需要了解的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A41%EF%BC%9A%E4%BB%BF%E7%9C%9F%E5%8E%9F%E7%90%86%E5%9B%BE%E4%B8%8E%E6%B7%BB%E5%8A%A0%E5%B0%81%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">步骤1：仿真原理图与添加封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A42%EF%BC%9A%E5%85%83%E4%BB%B6%E5%B8%83%E5%B1%80"><span class="nav-number">1.3.</span> <span class="nav-text">步骤2：元件布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3D-%E9%A2%84%E8%A7%88"><span class="nav-number">1.4.</span> <span class="nav-text">3D 预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A43%EF%BC%9A%E5%AF%BC%E5%87%BAgerber%EF%BC%88%E9%A2%9D%E5%A4%96%EF%BC%89"><span class="nav-number">1.5.</span> <span class="nav-text">步骤3：导出gerber（额外）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E7%BD%91%E5%9D%80"><span class="nav-number">1.7.</span> <span class="nav-text">参考网址</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -366,7 +376,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -403,8 +413,8 @@
 
 <div class="copyright">
   
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
