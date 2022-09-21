@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"alwaysmy.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"alwaysmy.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="从零开始的MSP430单片机学习（一） 写在前面单片机学习本身是一个了解学习一个技术的过程，学习的过程中不应该拘泥于某一款，而是要了解学习的方法。 同时学习技术较快的方法是完成一个完整的项目，同时记录学习中遇到的问题整个培训下来会提供一个或者多个具体的例子供学习，也可自由发挥。 教程首先会简述单片机的学习方法，然后讲解具体的细节，然后讲解具体的项目来完成学习过程。  本教程会以 MSP430 单片">
@@ -27,32 +27,32 @@
 <meta property="og:site_name" content="番茄条·红烧牛腩肉">
 <meta property="og:description" content="从零开始的MSP430单片机学习（一） 写在前面单片机学习本身是一个了解学习一个技术的过程，学习的过程中不应该拘泥于某一款，而是要了解学习的方法。 同时学习技术较快的方法是完成一个完整的项目，同时记录学习中遇到的问题整个培训下来会提供一个或者多个具体的例子供学习，也可自由发挥。 教程首先会简述单片机的学习方法，然后讲解具体的细节，然后讲解具体的项目来完成学习过程。  本教程会以 MSP430 单片">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%B0%81%E9%9D%A2.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/单片机学习入门（一）/image-20210405185841746.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/单片机学习入门（一）/image-20210405185950827.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405192138665.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405193131040.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/单片机学习入门（一）/image-20210405194214472.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/单片机学习入门（一）/image-20210405195810787.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/单片机学习入门（一）/image-20210405200009851.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/单片机学习入门（一）/image-20210405211710941.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/单片机学习入门（一）/image-20210405215210503.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/单片机学习入门（一）/image-20210405212620621.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/单片机学习入门（一）/image-20210405212820390.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/单片机学习入门（一）/image-20210405213926925.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405214238500.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405214618665.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405215857561.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/单片机学习入门（一）/image-20210405220511081.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/单片机学习入门（一）/image-20210405220652715.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/单片机学习入门（一）/image-20210405221926400.png">
-<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/单片机学习入门（一）/image-20210405223334092.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%B0%81%E9%9D%A2.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405185841746.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405185950827.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405192138665.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405193131040.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405194214472.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405195810787.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405200009851.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405211710941.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405215210503.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405212620621.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405212820390.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405213926925.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405214238500.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405214618665.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405215857561.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405220511081.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405220652715.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405221926400.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405223334092.png">
 <meta property="article:published_time" content="2021-04-05T09:02:19.000Z">
 <meta property="article:modified_time" content="2021-04-06T03:01:21.955Z">
 <meta property="article:author" content="Always L">
 <meta property="article:tag" content="MSP430 ARM 8051">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%B0%81%E9%9D%A2.png">
+<meta name="twitter:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%B0%81%E9%9D%A2.png">
 
 <link rel="canonical" href="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/">
 
@@ -245,13 +245,13 @@
 <p>对于其他类型的单片机，市面上常见的8051系列产品（如STC、WCH等），ARM产品（如ST、NXP等)，有的也有官方提供的核心板或者网上有卖家提供的产品。</p>
 <h3 id="1-2-G2-launchpad-介绍"><a href="#1-2-G2-launchpad-介绍" class="headerlink" title="1.2 G2 launchpad 介绍"></a>1.2 G2 launchpad 介绍</h3><ul>
 <li><p><em>对于已有的资源，首先进行了解方便后续的学习</em></p>
-<p><img src="%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%B0%81%E9%9D%A2.png" alt="单片机封面"></p>
+<p><img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%B0%81%E9%9D%A2.png" alt="单片机封面"></p>
 <h4 id="1-2-1-从官方下载板卡资料。"><a href="#1-2-1-从官方下载板卡资料。" class="headerlink" title="1.2.1 从官方下载板卡资料。"></a>1.2.1 从官方下载板卡资料。</h4><p>从官网可以找到 <a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/MSP-EXP430G2?keyMatch=EXP%20G2&tisearch=search-everything">MSP-EXP430G2</a> 的产品资料，对于 TI 的产品还有别的方法进行下载，将在后面开发环境章节进行介绍。</p>
 <p>找到 <em><strong>MSP-EXP430G2 Hardware Design Files</strong></em> ，其中包含了设计原理图（有助于在硬件连接的时候进行参考），设计PCB文件。</p>
 <p>在这个产品提供的硬件设计资源（原理图和PCB文件）为 <a target="_blank" rel="noopener" href="http://eagle.autodesk.com/">Eagle</a> 所制造，其文件可以用Eagle或者 <a target="_blank" rel="noopener" href="https://www.autodesk.com.cn/products/fusion-360/overview">Fusion 360</a> 打开查看：</p>
-<img src="单片机学习入门（一）/image-20210405185841746.png" alt="image-20210405185841746" style="zoom:75%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405185841746.png" alt="image-20210405185841746" style="zoom:75%;">
 
-<img src="单片机学习入门（一）/image-20210405185950827.png" alt="image-20210405185950827" style="zoom:75%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405185950827.png" alt="image-20210405185950827" style="zoom:75%;">
 
 <p>一般查看PDF文件即可。</p>
 <hr>
@@ -260,11 +260,11 @@
 <p>下载器通过单片机的SWD接口可以下载程序到单片机，同时可以访问单片机内部资源因此可以仿真，这个下载器是TI的专用下载器，在 MSP-EXP430G2 这块开发板上，使用的下载器限制较大，只能下载部分MSP430单片机，同时提供一个串口用来连接调试。在新版的 MSP430G2553 开发板 <a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/MSP-EXP430G2ET">MSP-EXP430G2ET</a> 上，以及其他430 launchpad 上，使用的下载器为硬件开源的 <a target="_blank" rel="noopener" href="http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/MSP430_ezFETLite/latest/index_FDS.html">MSP430_ezFETLite</a> ，具有更好的性能，可以下载几乎所有的MSP430系列单片机，同时提供串口。</p>
 <h4 id="1-2-2-从官方下载芯片数据和用户指南手册以及例程。"><a href="#1-2-2-从官方下载芯片数据和用户指南手册以及例程。" class="headerlink" title="1.2.2 从官方下载芯片数据和用户指南手册以及例程。"></a>1.2.2 从官方下载芯片数据和用户指南手册以及例程。</h4><p>不同的单片机厂商都会在其产品主页提供用户手册和产品数据表供使用。对于 TI 的产品，可以直接在其官网搜索对应的产品型号并点击进入，或者在CCS中下载其产品支持包，这个方法在开发环境章节中讲解。顺便一提，如果使用Bing或者Google作为搜索引擎，直接搜索找数据表和手册是一件很容易的事情。</p>
 <p>同时，对于单片机类产品，通常官方会提供例程供开发使用，因为单看手册就写有点麻烦。这里以MSP430G2553 为例，讲解一下如何在毫无了解的情况下进行入门：</p>
-<p><img src="%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405192138665.png" alt="image-20210405192138665"></p>
+<p><img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405192138665.png" alt="image-20210405192138665"></p>
 <p>进入产品主页之后，首先可以看到数据表（datasheet）和用户指南。这些肯定是要查看的。</p>
 <p>同时，点击技术文档，可以看到 TI 提供的更多相关技术的文档 ，可以进行下载阅读。</p>
 <p>比较重要的是，<strong>设计与开发</strong>，点击后，可以看到 TI 提供了指示，提示应该用什么方法进行开发，使用什么软件，最后一项：</p>
-<p><img src="%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405193131040.png" alt="image-20210405193131040"></p>
+<p><img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405193131040.png" alt="image-20210405193131040"></p>
 <p>提供了代码例程。</p>
 <p>对于其他厂商的单片机同理，不过这里可以先不下载，因为有更方便的方法。</p>
 <p>可以看到，设计与开发中，其指示了用于MSP的 集成开发环境。</p>
@@ -276,7 +276,7 @@
 <p>首先，可以认为，官方所提供开发的集成开发环境通常是最方便的，因为能得到较好的技术支持，而且官方提供的 IDE 通常是免费的。</p>
 <p>在上一章节中，在<strong>设计与开发</strong>内，TI 介绍了<a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/CCSTUDIO-MSP"> Code Composer Studio (CCS)</a> ，也介绍了<a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/IAR-KICKSTART">IAR 嵌入式工作平台 Kickstart - 免费 8KB 版本</a>.  </p>
 <p>其中，可以看到：</p>
-<img src="单片机学习入门（一）/image-20210405194214472.png" alt="image-20210405194214472" style="zoom:80%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405194214472.png" alt="image-20210405194214472" style="zoom:80%;">
 
 <p>CCS 作为官方IDE,内容是更多的。可以从官网获得更多技术支持。</p>
 <p>在区别上，CCS内建的编译器和IAR的编译器存在一些不同，同时还有开源产品<a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/MSP430-GCC-OPENSOURCE">MSP430-GCC</a> 也可以用来编译代码，所以在官方提供的例程中可以看到一些预编译的符号用来区分不同的编译器。</p>
@@ -284,9 +284,9 @@
 <p>同时 CCS 也是 TI 官方推荐使用的IDE , TI甚至提供了基于云端的CCS cloud 可以进行开发。加之CCS更具专业性，后面所讲的开发环境都会基于CCS讲解。</p>
 <hr>
 <p>说到专业性，TI 也提供了一个不那么专业的 IDE —- <a target="_blank" rel="noopener" href="https://energia.nu/">Energia</a> , 其实就是一个红色版本的 Arduino ，只不过可以使用 TI 自家的板卡。其使用了与 Arduino  相同的语法和库，所以开发板卡在某些应用上更快更简单，但是如果想要使用开源社区的库以及社区提供的更多的板卡支持，推荐使用基于 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS code</a>  的 <a target="_blank" rel="noopener" href="https://platformio.org/">platform IO</a> 代替 Energia , 其具备更好的技术支持，同时VS code 的编辑功能也更加强大，由于非常简单且可以参考Arduino学习，这里只做简单介绍，后面不在赘述，可自行学习。</p>
-<img src="单片机学习入门（一）/image-20210405195810787.png" alt="image-20210405195810787" style="zoom:40%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405195810787.png" alt="image-20210405195810787" style="zoom:40%;">
 
-<img src="单片机学习入门（一）/image-20210405200009851.png" alt="image-20210405200009851" style="zoom:54%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405200009851.png" alt="image-20210405200009851" style="zoom:54%;">
 
 <hr>
 <h1 id="2-使用CCS开发自己的第一个单片机程序–Blink"><a href="#2-使用CCS开发自己的第一个单片机程序–Blink" class="headerlink" title="2.使用CCS开发自己的第一个单片机程序–Blink"></a>2.使用CCS开发自己的第一个单片机程序–Blink</h1><p>单片机到手第一件事情–正如一门编程语言第一件事是输出hello word – 便是点亮一个LED ( 有的 MSP430 单片机可以通过调试台输出 Hello world，G2553 不行，因为资源不足 ) 。</p>
@@ -305,7 +305,7 @@
 <p><em>同样，导出选择File export  选择archive file，实际上这个就是个压缩包功能。</em></p>
 <hr>
 <p>新建工程的界面可以看到：</p>
-<img src="单片机学习入门（一）/image-20210405211710941.png" alt="image-20210405211710941" style="zoom:50%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405211710941.png" alt="image-20210405211710941" style="zoom:50%;">
 
 <ol>
 <li>其中 Target 可以直接搜索所使用的单片机，这里我们使用的单片机型号是MSP430G2553，所以进行选择。</li>
@@ -321,27 +321,27 @@
 <p>简言之，这是一个C语言的编译的问题。</p>
 </blockquote>
 <p>例如，右键你的工程，最下面的properties,可以看到，</p>
-<img src="单片机学习入门（一）/image-20210405215210503.png" alt="image-20210405215210503" style="zoom: 67%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405215210503.png" alt="image-20210405215210503" style="zoom: 67%;">
 
 <p>这里可以进行配置编译选项，这里暂时不多说。</p>
 <h3 id="2-1-2使用资源浏览器（Resource-Explorer"><a href="#2-1-2使用资源浏览器（Resource-Explorer" class="headerlink" title="2.1.2使用资源浏览器（Resource Explorer )"></a>2.1.2使用资源浏览器（<strong>Resource Explorer</strong> )</h3><p>在第一章节中提到，如何从官方获取资料，针对TI 的产品，可以点击CCS 顶部菜单栏 -View -<strong>Resource Explorer</strong>  点开之后，</p>
 <p>例如现在学习的是G2553, 那么直接搜索，可以看到</p>
-<img src="单片机学习入门（一）/image-20210405212620621.png" alt="image-20210405212620621" style="zoom:67%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405212620621.png" alt="image-20210405212620621" style="zoom:67%;">
 
 <ol>
 <li><p>首先点击 install 进行安装 MSP430Ware ,</p>
 </li>
 <li><p>点击MSP-EXP430G2展开，它集成包含了我们现在所用的板卡的所有资源。</p>
-<img src="单片机学习入门（一）/image-20210405212820390.png" alt="image-20210405212820390" style="zoom:50%;" /></li>
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405212820390.png" alt="image-20210405212820390" style="zoom:50%;"></li>
 </ol>
 <p>Demo中包含了一些应用例程，而Peripheral Examples（外设例程）选择MSP430G2553，可以看到Assembly –也就是汇编 ，和Register Level ( 寄存器级例程 )，也就是这里只有寄存器编程没有库函数编程。</p>
 <p>下面的 xx.c 文件指示了不同外设的例程，例如需要使用IO, </p>
-<img src="单片机学习入门（一）/image-20210405213926925.png" alt="image-20210405213926925" style="zoom:67%;" /> 
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405213926925.png" alt="image-20210405213926925" style="zoom:67%;"> 
 
 <p>这些文件是下载后（也就是前面的install）存在本地的，路径与CCS安装路径相同，推荐安装软件 <a target="_blank" rel="noopener" href="https://www.voidtools.com/zh-cn/">everything</a> 搜索对应的文件名，可以直接点击到文件夹查看。</p>
-<p><img src="%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405214238500.png" alt="image-20210405214238500"></p>
+<p><img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405214238500.png" alt="image-20210405214238500"></p>
 <h3 id="2-1-3使用调试功能（debug）"><a href="#2-1-3使用调试功能（debug）" class="headerlink" title="2.1.3使用调试功能（debug）"></a>2.1.3使用调试功能（debug）</h3><p>回到刚刚新建的例程Blink the LED。</p>
-<p><img src="%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405214618665.png" alt="image-20210405214618665"></p>
+<p><img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405214618665.png" alt="image-20210405214618665"></p>
 <ul>
 <li>点击菜单栏上的锤子，也就是Build进行编译。</li>
 </ul>
@@ -349,7 +349,7 @@
 <p><em>简单说一下，如果没有点击编译，点击Build会首先编译程序，但是如果程序编译后修改了再点击debug，会载入上一个程序，但是有一个技巧就是，再debug中如果修改了程序，点击编译，可以勾选自动载入新的程序，这样比停在再debug更快。</em></p>
 <hr>
 <p>编译完成之后点击绿的虫子图标进行debug，所谓debug，在PC上进行程序debug时候可以进行单步运行或者查看变量，这里同样。</p>
-<p><img src="%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405215857561.png" alt="image-20210405215857561"></p>
+<p><img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405215857561.png" alt="image-20210405215857561"></p>
 <p>点击箭头即可开始运行，关于其他图标的作用，可以鼠标挪到图标上等待出现文字提示，其中有暂停，停止，单步运行，单步跳过，单步返回。</p>
 <p>在程序中可以在代码前面行号上双击<strong>添加断点</strong>。其实这些是一些基本调试方法。</p>
 <ul>
@@ -357,11 +357,11 @@
 </ul>
 <p>首先点击顶部菜单栏 View ，可以分别打开Expressions 、Registers</p>
 <p>在Expressions  中可以查看想要的变量，手动填写或者在程序中选择要添加的变量，右键，然后：</p>
-<img src="单片机学习入门（一）/image-20210405220511081.png" alt="image-20210405220511081" style="zoom:67%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405220511081.png" alt="image-20210405220511081" style="zoom:67%;">
 
 <p>对于MSP430单片机，在程序中添加断点，当程序暂停才可以查看添加的变量当前的值。</p>
 <p>同理，Register窗口可以查看所有寄存器的值。</p>
-<img src="单片机学习入门（一）/image-20210405220652715.png" alt="image-20210405220652715" style="zoom:67%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405220652715.png" alt="image-20210405220652715" style="zoom:67%;">
 
 <p>对于上述操作，可以查看<a target="_blank" rel="noopener" href="https://b23.tv/AVMvt3">调试功能使用</a> 视频演示。</p>
 <h2 id="2-2-开始学习第一个程序"><a href="#2-2-开始学习第一个程序" class="headerlink" title="2.2 开始学习第一个程序"></a>2.2 开始学习第一个程序</h2><p>回到例程，在2.1章节中讲到，G2553官方只提供了寄存器级别的例程，因此这里开发也会基于寄存器。</p>
@@ -377,7 +377,7 @@
 <p> 表示读取P1DIR寄存器并和0x01做或运算并写入P1DIR;</p>
 <p> 这里P1DIR就是一个寄存器，包含八个bit，控制着P1整个端口8个IO的输入输出方向的配置，其每一个bit控制着一个IO</p>
 <p> 回到单片机的用户指南，《<a target="_blank" rel="noopener" href="https://www.ti.com.cn/cn/lit/ug/slau144j/slau144j.pdf?ts=1617611245296&ref_url=https%253A%252F%252Fwww.ti.com.cn%252Fproduct%252Fcn%252FMSP430G2553">MSP430G2553用户指南</a>》，在数字IO部分（P327)：</p>
- <img src="单片机学习入门（一）/image-20210405221926400.png" alt="image-20210405221926400" style="zoom:50%;" />
+ <img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405221926400.png" alt="image-20210405221926400" style="zoom:50%;">
  
  可以看到，寄存器的功能在于配置引脚的方向。
  
@@ -403,7 +403,7 @@
  
  在CCS中，按住Ctrl键，同时点击变量即可查看变量的定义位置，按住Ctrl点击BIT0, 可以看到其宏定义的内容：
  
- <img src="单片机学习入门（一）/image-20210405223334092.png" alt="image-20210405223334092" style="zoom:50%;" />
+ <img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405223334092.png" alt="image-20210405223334092" style="zoom:50%;">
  
  顺便一提，在CCS中代码自动补全的快捷键是Alt+/。
  
@@ -600,7 +600,7 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>

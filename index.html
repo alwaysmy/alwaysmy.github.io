@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"alwaysmy.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"alwaysmy.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="硬件，杂项，爱好">
@@ -210,13 +210,13 @@
           <h2 id="慧荣SM2246EN主控山寨固态修复"><a href="#慧荣SM2246EN主控山寨固态修复" class="headerlink" title="慧荣SM2246EN主控山寨固态修复"></a>慧荣SM2246EN主控山寨固态修复</h2><p><em>在某鱼收了一个120G的所谓金士顿v300固态硬盘，也是受到了一些颗粒玩家的影响想要收来做个U盘，便有了下文…</em></p>
 <hr>
 <h4 id="初印象"><a href="#初印象" class="headerlink" title="初印象"></a>初印象</h4><p>当时到手后拆开发现内部主控为慧荣SM2246EN。<br>实际上在网上查询得知这款金士顿应该为SF2281的主控。<br>固态上的颗粒印字为Toshiba的TH58TEG7DDLTA00。如下图。</p>
-<p><img src="SSD%E4%BF%AE%E5%A4%8D/%E5%A4%96%E8%A7%82.png" alt="整体外观"></p>
+<p><img src="/2021/10/10/SSD%E4%BF%AE%E5%A4%8D/%E5%A4%96%E8%A7%82.png" alt="整体外观"></p>
 <p>基本上认定这是一个山寨产品。</p>
 <p>首先还是试一试读写，买了斐讯的Sata转USB3.0转接板，上机发现问题是偶尔能读取，但是无法删除原有文件，也无法新建（重新拔插后全部恢复原样），顺序写入大概70M/s，很快掉盘。</p>
 <h4 id="尝试修复"><a href="#尝试修复" class="headerlink" title="尝试修复"></a>尝试修复</h4><p>直接考虑进行量产操作。</p>
 <p>图片上可以看到左边丝印有标注ROM，用镊子短接然后插USB就可以进入ROM模式，被慧荣SM2246EN的量产工具识别就可以开卡。</p>
 <p>但是在慧荣的各个版本量产工具中都找不到这个颗粒型号。<br>关于颗粒类型与命名规则，这里可以参考一些别的文献。<br>这个颗粒按照丝印，应该是15nm制程的MLC，但是在SSD-z中读取为Toshiba 19nm MLC，主控读取为SF2281，但主控固件读取为P0614，这个型号可以看出来很明显是慧荣的一款固件版本。所以说具体颗粒究竟是什么从颗粒丝印不一定是正确的，也可能是重新打字。之前一直尝试使用东芝其他型号颗粒开卡不能开出。</p>
-<p>然后用慧荣开卡工具进行Dram Test（下图）<br><img src="SSD%E4%BF%AE%E5%A4%8D/%E9%87%8F%E4%BA%A7%E5%B7%A5%E5%85%B7.png" alt="测试"><br>发现Dram Test过不了，最开始的思路是找能不用缓存的固件开卡，但是实在找不到这样的。顺便提一嘴，这个慧荣的量产工具界面要拖动边框有些内容才会显示出来。<br>这时候去翻了翻论坛，了解到：</p>
+<p>然后用慧荣开卡工具进行Dram Test（下图）<br><img src="/2021/10/10/SSD%E4%BF%AE%E5%A4%8D/%E9%87%8F%E4%BA%A7%E5%B7%A5%E5%85%B7.png" alt="测试"><br>发现Dram Test过不了，最开始的思路是找能不用缓存的固件开卡，但是实在找不到这样的。顺便提一嘴，这个慧荣的量产工具界面要拖动边框有些内容才会显示出来。<br>这时候去翻了翻论坛，了解到：</p>
 <blockquote>
 <ul>
 <li>首先内存型号要选对</li>
@@ -225,11 +225,11 @@
 </ul>
 </blockquote>
 <p>这些不同的观点对我修复这个硬盘的过程造成一些困扰。</p>
-<p>图中是南亚的颗粒，Nanya的内存丝印可以看到64M16，<br>意思是64M Bytes16位，这里这个大小按照8Bit算，就是128M，有些颗粒如三星（SEC，Samsung）海力士（SKhynix）会标1G16那种就是1G bits，就是128M Bytes。<br>SM2246主控只支持16位内存。进入参数设置页面设置正确（下图）<br><img src="SSD%E4%BF%AE%E5%A4%8D/%E9%87%8F%E4%BA%A7%E5%B7%A5%E5%85%B72.png" alt="量产"></p>
+<p>图中是南亚的颗粒，Nanya的内存丝印可以看到64M16，<br>意思是64M Bytes16位，这里这个大小按照8Bit算，就是128M，有些颗粒如三星（SEC，Samsung）海力士（SKhynix）会标1G16那种就是1G bits，就是128M Bytes。<br>SM2246主控只支持16位内存。进入参数设置页面设置正确（下图）<br><img src="/2021/10/10/SSD%E4%BF%AE%E5%A4%8D/%E9%87%8F%E4%BA%A7%E5%B7%A5%E5%85%B72.png" alt="量产"></p>
 <p>但是依然不能开卡。</p>
 <hr>
 <h4 id="切换思路"><a href="#切换思路" class="headerlink" title="切换思路"></a>切换思路</h4><p>这时候我已经想放弃了，但是考虑到还是有可能是内存颗粒虚焊，当时手头没有热风枪，先用力按住内存和PCB,发现DRAM Test 可以通过，果然是虚焊。用热风枪重新加焊之后，SSD可以直接使用了，不需要量产。<br>但是在跑随机读写的时候还是容易掉盘，而且顺序读写速度很低。本来不想接着折腾了，就装到壳子里面了。然后发现更容易掉盘了，需要重新加焊，这里为什么后面解释。<br>继续可以使用了之后，尝试再固态里面装一个<a target="_blank" rel="noopener" href="https://markdown.com.cn/">Deepin</a>，但是每次都会最后掉盘，第三次的时候直接拔掉电源，发现再不能识别硬盘，当时心里一凉，完了。</p>
-<h4 id="收尾工作"><a href="#收尾工作" class="headerlink" title="收尾工作"></a>收尾工作</h4><p>这时候已经不可避免要进行量产了，最开始提示Flash没有sync，后来再参数设置里面关掉了sync mode，至于选择颗粒选择了自动匹配ID的Sandisk的128Gb颗粒进行开卡，发现这样子可以通过开卡。<br>速度也有所提升。然是发现装进外壳之后又不能识别，这时候用手轻轻扳动缓存颗粒旁边的PCB边缘，发现不能通过DRAM test,就明白了外壳上螺丝的时候会压到这个pcb使其虚焊。重新加焊之后不再上这个螺丝。<br>另外，这只是这个固态的一部分毛病，之前再固态信息里面看到这个固态的数据量是<strong>120T</strong>…也就说，颗粒很可能已经接近报废，所以这就导致后面的的问题，写入到一部分的时候会掉盘。也就说坏块过多也不能映射备用块。这里说一下，固态和机械有很大的不同，所以diskgenius的扫描坏块是不合适的，比如需要读写，对于固态寿命是有影响的，读出来的结果也并不是真的物理块，但是我这里死马当做活马医，本身只想看个参考，所以跑了测试发现确实有读写错误的部分。<br>为了解决这个问题，可以通过跑RDT来解决这个问题，量产的时候勾选RDT,这个PCBA在跑的时候会闪灯，所以可以看到跑完结束。跑完RDT之后量产需要直接插上电脑，<strong>不要短接ROM，不要短接不要短接</strong>，那样就失去了RDT信息(如下）<img src="SSD%E4%BF%AE%E5%A4%8D/RDT.png" alt="RDT"></p>
+<h4 id="收尾工作"><a href="#收尾工作" class="headerlink" title="收尾工作"></a>收尾工作</h4><p>这时候已经不可避免要进行量产了，最开始提示Flash没有sync，后来再参数设置里面关掉了sync mode，至于选择颗粒选择了自动匹配ID的Sandisk的128Gb颗粒进行开卡，发现这样子可以通过开卡。<br>速度也有所提升。然是发现装进外壳之后又不能识别，这时候用手轻轻扳动缓存颗粒旁边的PCB边缘，发现不能通过DRAM test,就明白了外壳上螺丝的时候会压到这个pcb使其虚焊。重新加焊之后不再上这个螺丝。<br>另外，这只是这个固态的一部分毛病，之前再固态信息里面看到这个固态的数据量是<strong>120T</strong>…也就说，颗粒很可能已经接近报废，所以这就导致后面的的问题，写入到一部分的时候会掉盘。也就说坏块过多也不能映射备用块。这里说一下，固态和机械有很大的不同，所以diskgenius的扫描坏块是不合适的，比如需要读写，对于固态寿命是有影响的，读出来的结果也并不是真的物理块，但是我这里死马当做活马医，本身只想看个参考，所以跑了测试发现确实有读写错误的部分。<br>为了解决这个问题，可以通过跑RDT来解决这个问题，量产的时候勾选RDT,这个PCBA在跑的时候会闪灯，所以可以看到跑完结束。跑完RDT之后量产需要直接插上电脑，<strong>不要短接ROM，不要短接不要短接</strong>，那样就失去了RDT信息(如下）<img src="/2021/10/10/SSD%E4%BF%AE%E5%A4%8D/RDT.png" alt="RDT"></p>
 <p>而是直接插上硬盘就应该能在量产工具里面检测到。最开始我的斐讯的JMS576我发现不行还准备去买别的转接卡，后来发现只要插在USB2.0端口上就可以识别了，然后换了0819A的固件，发现速度也有提升，测试两天后发现没有掉盘，结束。</p>
 <hr>
 <h3 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h3><p>折腾有风险，修理费时间，目前稳定使用一年多，不过权当一段经历吧。</p>
@@ -389,47 +389,47 @@
 <p>在绘制原理图的时候，除了必要的元件之外，还可以添加连接件例如排针。在器件库中选择Connectors，选择All families后搜索HDR</p>
 <p>,看到HDR1x10,这个就是10pin的2.54mm排针，这里可以找到HDR1x2进行添加。</p>
 <p>如下图:</p>
-<img src="Multisim仿真后快速布局/image-20210313213000992.png" alt="image-20210313213000992" style="zoom:67%;" />
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213000992.png" alt="image-20210313213000992" style="zoom:67%;">
 
 <p>然后可以看到上图中的R3为黑色，其余元件有别的颜色，如电阻电容的蓝色。</p>
 <p>因为有颜色的是添加了封装。对于具体的器件，有的器件包含默认封装，但是这种基本器件需要自己选择。</p>
 <p>双击元件：</p>
-<img src="Multisim仿真后快速布局/image-20210313213413695.png" alt="image-20210313213413695" style="zoom:67%;" />
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213413695.png" alt="image-20210313213413695" style="zoom:67%;">
 
 <p>可以edit package ,进入之后可以挑选一个封装，排序是字母（没找到怎么快点找到，下版改进）。</p>
 <p>由于主要用于快速参考或者洞洞板焊接，阻容封装通常可以随意一点。</p>
 <p>只需要把自己需要焊接的器件添加封装，不添加封装的不会出现在板子中。</p>
 <h2 id="步骤2：元件布局"><a href="#步骤2：元件布局" class="headerlink" title="步骤2：元件布局"></a>步骤2：元件布局</h2><p>添加封装之后，点击transfer，当然这里也可以导出网表用别的软件来画，这里本来就是为了省事，就直接点击transfer to Ultiboard 14.0.</p>
-<img src="Multisim仿真后快速布局/image-20210313213816011.png" alt="image-20210313213816011" style="zoom:67%;" />
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313213816011.png" alt="image-20210313213816011" style="zoom:67%;">
 
 <p>你会得到一个ewprj后缀的文件，这时候器件都在底下了，但是还没有连线，首先用鼠标移动器件进行摆放，Ctrl+R可以旋转。</p>
 <p>或者使用自动摆放 ：顶部Autoplace parts.</p>
-<img src="Multisim仿真后快速布局/image-20210319223305830.png" alt="image-20210319223305830" style="zoom:67%;" />
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210319223305830.png" alt="image-20210319223305830" style="zoom:67%;">
 
 
 
 <h2 id="3D-预览"><a href="#3D-预览" class="headerlink" title="3D 预览"></a>3D 预览</h2><p>下面这个选项可以查看3D,鼠标左键拖动</p>
-<p><img src="Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210319223543410.png" alt="image-20210319223543410"></p>
+<p><img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210319223543410.png" alt="image-20210319223543410"></p>
 <p>3D 是个新窗口，直接右上角关掉就回到了二维</p>
 <p>摆放完成之后，点击Place，点击Line（或者快捷键Ctrl+Shift+L），对元件引脚连接用于自己连线参考。</p>
 <p>由于是作为洞洞板参考，最好单层。如下，比较随意：</p>
-<img src="Multisim仿真后快速布局/image-20210313214659220.png" alt="image-20210313214659220" style="zoom:67%;" />
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313214659220.png" alt="image-20210313214659220" style="zoom:67%;">
 
 <p>也可以使用自动布线然后手动修改：在一个自动布线的教程中，在开始还做了这个，不知道具体含义：</p>
-<img src="Multisim仿真后快速布局/image-20210319223412654.png" alt="image-20210319223412654" style="zoom:67%;" />
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210319223412654.png" alt="image-20210319223412654" style="zoom:67%;">
 
 <p>去掉了这个钩（在options-pcb properties里面）。</p>
 <p>然后可以进行autoRoute。</p>
 <p>洞洞板是2.54mm间距的洞洞，即100mil，为了方便，可以在菜单Edit-Properties，点击第二个Grid &amp;units，修改栅格为100mil或者50mil。</p>
-<img src="Multisim仿真后快速布局/image-20210313214839186.png" alt="image-20210313214839186" style="zoom:67%;" />
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210313214839186.png" alt="image-20210313214839186" style="zoom:67%;">
 
 <p>到这里就可以参考这个布局进行洞洞板的焊接，当然有兴趣也可以用这个出PCB。</p>
 <p>左侧选择Board Outline 可以绘制边框。</p>
 <p>这个还提供了一个功能就是全选pcb内的内容可以直接复制到word里面为图片：</p>
-<img src="Multisim仿真后快速布局/image-20210420001109403.png" alt="image-20210420001109403" style="zoom:67%;" />
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210420001109403.png" alt="image-20210420001109403" style="zoom:67%;">
 
 <p>选到铜皮层，然后place graphics 选择类型可以添加覆铜。</p>
-<img src="Multisim仿真后快速布局/image-20210420001054814.png" alt="image-20210420001054814" style="zoom:67%;" />
+<img src="/2021/04/20/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/image-20210420001054814.png" alt="image-20210420001054814" style="zoom:67%;">
 
 <h2 id="步骤3：导出gerber（额外）"><a href="#步骤3：导出gerber（额外）" class="headerlink" title="步骤3：导出gerber（额外）"></a>步骤3：导出gerber（额外）</h2><p>导出gerber比较坑，按照默认选项导出有钻孔也有光绘，用gerber预览看见也应该是正确的，但是在嘉立创下单助手里面不能识别。。。。</p>
 <p>这里用用kicad的gerbview导入ultiboard导出的gerber文件，导出到pcb_new,选择正确的层，有些没有就不选，然后可能需要到到kicad里面整理一下边框重新导出是可以使用的，没有琢磨出来能直接导出可以识别的Gerber的方法.</p>
@@ -524,13 +524,13 @@
 <p>对于其他类型的单片机，市面上常见的8051系列产品（如STC、WCH等），ARM产品（如ST、NXP等)，有的也有官方提供的核心板或者网上有卖家提供的产品。</p>
 <h3 id="1-2-G2-launchpad-介绍"><a href="#1-2-G2-launchpad-介绍" class="headerlink" title="1.2 G2 launchpad 介绍"></a>1.2 G2 launchpad 介绍</h3><ul>
 <li><p><em>对于已有的资源，首先进行了解方便后续的学习</em></p>
-<p><img src="%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%B0%81%E9%9D%A2.png" alt="单片机封面"></p>
+<p><img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%B0%81%E9%9D%A2.png" alt="单片机封面"></p>
 <h4 id="1-2-1-从官方下载板卡资料。"><a href="#1-2-1-从官方下载板卡资料。" class="headerlink" title="1.2.1 从官方下载板卡资料。"></a>1.2.1 从官方下载板卡资料。</h4><p>从官网可以找到 <a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/MSP-EXP430G2?keyMatch=EXP%20G2&tisearch=search-everything">MSP-EXP430G2</a> 的产品资料，对于 TI 的产品还有别的方法进行下载，将在后面开发环境章节进行介绍。</p>
 <p>找到 <em><strong>MSP-EXP430G2 Hardware Design Files</strong></em> ，其中包含了设计原理图（有助于在硬件连接的时候进行参考），设计PCB文件。</p>
 <p>在这个产品提供的硬件设计资源（原理图和PCB文件）为 <a target="_blank" rel="noopener" href="http://eagle.autodesk.com/">Eagle</a> 所制造，其文件可以用Eagle或者 <a target="_blank" rel="noopener" href="https://www.autodesk.com.cn/products/fusion-360/overview">Fusion 360</a> 打开查看：</p>
-<img src="单片机学习入门（一）/image-20210405185841746.png" alt="image-20210405185841746" style="zoom:75%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405185841746.png" alt="image-20210405185841746" style="zoom:75%;">
 
-<img src="单片机学习入门（一）/image-20210405185950827.png" alt="image-20210405185950827" style="zoom:75%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405185950827.png" alt="image-20210405185950827" style="zoom:75%;">
 
 <p>一般查看PDF文件即可。</p>
 <hr>
@@ -539,11 +539,11 @@
 <p>下载器通过单片机的SWD接口可以下载程序到单片机，同时可以访问单片机内部资源因此可以仿真，这个下载器是TI的专用下载器，在 MSP-EXP430G2 这块开发板上，使用的下载器限制较大，只能下载部分MSP430单片机，同时提供一个串口用来连接调试。在新版的 MSP430G2553 开发板 <a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/MSP-EXP430G2ET">MSP-EXP430G2ET</a> 上，以及其他430 launchpad 上，使用的下载器为硬件开源的 <a target="_blank" rel="noopener" href="http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/MSP430_ezFETLite/latest/index_FDS.html">MSP430_ezFETLite</a> ，具有更好的性能，可以下载几乎所有的MSP430系列单片机，同时提供串口。</p>
 <h4 id="1-2-2-从官方下载芯片数据和用户指南手册以及例程。"><a href="#1-2-2-从官方下载芯片数据和用户指南手册以及例程。" class="headerlink" title="1.2.2 从官方下载芯片数据和用户指南手册以及例程。"></a>1.2.2 从官方下载芯片数据和用户指南手册以及例程。</h4><p>不同的单片机厂商都会在其产品主页提供用户手册和产品数据表供使用。对于 TI 的产品，可以直接在其官网搜索对应的产品型号并点击进入，或者在CCS中下载其产品支持包，这个方法在开发环境章节中讲解。顺便一提，如果使用Bing或者Google作为搜索引擎，直接搜索找数据表和手册是一件很容易的事情。</p>
 <p>同时，对于单片机类产品，通常官方会提供例程供开发使用，因为单看手册就写有点麻烦。这里以MSP430G2553 为例，讲解一下如何在毫无了解的情况下进行入门：</p>
-<p><img src="%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405192138665.png" alt="image-20210405192138665"></p>
+<p><img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405192138665.png" alt="image-20210405192138665"></p>
 <p>进入产品主页之后，首先可以看到数据表（datasheet）和用户指南。这些肯定是要查看的。</p>
 <p>同时，点击技术文档，可以看到 TI 提供的更多相关技术的文档 ，可以进行下载阅读。</p>
 <p>比较重要的是，<strong>设计与开发</strong>，点击后，可以看到 TI 提供了指示，提示应该用什么方法进行开发，使用什么软件，最后一项：</p>
-<p><img src="%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405193131040.png" alt="image-20210405193131040"></p>
+<p><img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405193131040.png" alt="image-20210405193131040"></p>
 <p>提供了代码例程。</p>
 <p>对于其他厂商的单片机同理，不过这里可以先不下载，因为有更方便的方法。</p>
 <p>可以看到，设计与开发中，其指示了用于MSP的 集成开发环境。</p>
@@ -555,7 +555,7 @@
 <p>首先，可以认为，官方所提供开发的集成开发环境通常是最方便的，因为能得到较好的技术支持，而且官方提供的 IDE 通常是免费的。</p>
 <p>在上一章节中，在<strong>设计与开发</strong>内，TI 介绍了<a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/CCSTUDIO-MSP"> Code Composer Studio (CCS)</a> ，也介绍了<a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/IAR-KICKSTART">IAR 嵌入式工作平台 Kickstart - 免费 8KB 版本</a>.  </p>
 <p>其中，可以看到：</p>
-<img src="单片机学习入门（一）/image-20210405194214472.png" alt="image-20210405194214472" style="zoom:80%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405194214472.png" alt="image-20210405194214472" style="zoom:80%;">
 
 <p>CCS 作为官方IDE,内容是更多的。可以从官网获得更多技术支持。</p>
 <p>在区别上，CCS内建的编译器和IAR的编译器存在一些不同，同时还有开源产品<a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/MSP430-GCC-OPENSOURCE">MSP430-GCC</a> 也可以用来编译代码，所以在官方提供的例程中可以看到一些预编译的符号用来区分不同的编译器。</p>
@@ -563,9 +563,9 @@
 <p>同时 CCS 也是 TI 官方推荐使用的IDE , TI甚至提供了基于云端的CCS cloud 可以进行开发。加之CCS更具专业性，后面所讲的开发环境都会基于CCS讲解。</p>
 <hr>
 <p>说到专业性，TI 也提供了一个不那么专业的 IDE —- <a target="_blank" rel="noopener" href="https://energia.nu/">Energia</a> , 其实就是一个红色版本的 Arduino ，只不过可以使用 TI 自家的板卡。其使用了与 Arduino  相同的语法和库，所以开发板卡在某些应用上更快更简单，但是如果想要使用开源社区的库以及社区提供的更多的板卡支持，推荐使用基于 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS code</a>  的 <a target="_blank" rel="noopener" href="https://platformio.org/">platform IO</a> 代替 Energia , 其具备更好的技术支持，同时VS code 的编辑功能也更加强大，由于非常简单且可以参考Arduino学习，这里只做简单介绍，后面不在赘述，可自行学习。</p>
-<img src="单片机学习入门（一）/image-20210405195810787.png" alt="image-20210405195810787" style="zoom:40%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405195810787.png" alt="image-20210405195810787" style="zoom:40%;">
 
-<img src="单片机学习入门（一）/image-20210405200009851.png" alt="image-20210405200009851" style="zoom:54%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405200009851.png" alt="image-20210405200009851" style="zoom:54%;">
 
 <hr>
 <h1 id="2-使用CCS开发自己的第一个单片机程序–Blink"><a href="#2-使用CCS开发自己的第一个单片机程序–Blink" class="headerlink" title="2.使用CCS开发自己的第一个单片机程序–Blink"></a>2.使用CCS开发自己的第一个单片机程序–Blink</h1><p>单片机到手第一件事情–正如一门编程语言第一件事是输出hello word – 便是点亮一个LED ( 有的 MSP430 单片机可以通过调试台输出 Hello world，G2553 不行，因为资源不足 ) 。</p>
@@ -584,7 +584,7 @@
 <p><em>同样，导出选择File export  选择archive file，实际上这个就是个压缩包功能。</em></p>
 <hr>
 <p>新建工程的界面可以看到：</p>
-<img src="单片机学习入门（一）/image-20210405211710941.png" alt="image-20210405211710941" style="zoom:50%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405211710941.png" alt="image-20210405211710941" style="zoom:50%;">
 
 <ol>
 <li>其中 Target 可以直接搜索所使用的单片机，这里我们使用的单片机型号是MSP430G2553，所以进行选择。</li>
@@ -600,27 +600,27 @@
 <p>简言之，这是一个C语言的编译的问题。</p>
 </blockquote>
 <p>例如，右键你的工程，最下面的properties,可以看到，</p>
-<img src="单片机学习入门（一）/image-20210405215210503.png" alt="image-20210405215210503" style="zoom: 67%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405215210503.png" alt="image-20210405215210503" style="zoom: 67%;">
 
 <p>这里可以进行配置编译选项，这里暂时不多说。</p>
 <h3 id="2-1-2使用资源浏览器（Resource-Explorer"><a href="#2-1-2使用资源浏览器（Resource-Explorer" class="headerlink" title="2.1.2使用资源浏览器（Resource Explorer )"></a>2.1.2使用资源浏览器（<strong>Resource Explorer</strong> )</h3><p>在第一章节中提到，如何从官方获取资料，针对TI 的产品，可以点击CCS 顶部菜单栏 -View -<strong>Resource Explorer</strong>  点开之后，</p>
 <p>例如现在学习的是G2553, 那么直接搜索，可以看到</p>
-<img src="单片机学习入门（一）/image-20210405212620621.png" alt="image-20210405212620621" style="zoom:67%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405212620621.png" alt="image-20210405212620621" style="zoom:67%;">
 
 <ol>
 <li><p>首先点击 install 进行安装 MSP430Ware ,</p>
 </li>
 <li><p>点击MSP-EXP430G2展开，它集成包含了我们现在所用的板卡的所有资源。</p>
-<img src="单片机学习入门（一）/image-20210405212820390.png" alt="image-20210405212820390" style="zoom:50%;" /></li>
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405212820390.png" alt="image-20210405212820390" style="zoom:50%;"></li>
 </ol>
 <p>Demo中包含了一些应用例程，而Peripheral Examples（外设例程）选择MSP430G2553，可以看到Assembly –也就是汇编 ，和Register Level ( 寄存器级例程 )，也就是这里只有寄存器编程没有库函数编程。</p>
 <p>下面的 xx.c 文件指示了不同外设的例程，例如需要使用IO, </p>
-<img src="单片机学习入门（一）/image-20210405213926925.png" alt="image-20210405213926925" style="zoom:67%;" /> 
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405213926925.png" alt="image-20210405213926925" style="zoom:67%;"> 
 
 <p>这些文件是下载后（也就是前面的install）存在本地的，路径与CCS安装路径相同，推荐安装软件 <a target="_blank" rel="noopener" href="https://www.voidtools.com/zh-cn/">everything</a> 搜索对应的文件名，可以直接点击到文件夹查看。</p>
-<p><img src="%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405214238500.png" alt="image-20210405214238500"></p>
+<p><img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405214238500.png" alt="image-20210405214238500"></p>
 <h3 id="2-1-3使用调试功能（debug）"><a href="#2-1-3使用调试功能（debug）" class="headerlink" title="2.1.3使用调试功能（debug）"></a>2.1.3使用调试功能（debug）</h3><p>回到刚刚新建的例程Blink the LED。</p>
-<p><img src="%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405214618665.png" alt="image-20210405214618665"></p>
+<p><img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405214618665.png" alt="image-20210405214618665"></p>
 <ul>
 <li>点击菜单栏上的锤子，也就是Build进行编译。</li>
 </ul>
@@ -628,7 +628,7 @@
 <p><em>简单说一下，如果没有点击编译，点击Build会首先编译程序，但是如果程序编译后修改了再点击debug，会载入上一个程序，但是有一个技巧就是，再debug中如果修改了程序，点击编译，可以勾选自动载入新的程序，这样比停在再debug更快。</em></p>
 <hr>
 <p>编译完成之后点击绿的虫子图标进行debug，所谓debug，在PC上进行程序debug时候可以进行单步运行或者查看变量，这里同样。</p>
-<p><img src="%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405215857561.png" alt="image-20210405215857561"></p>
+<p><img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405215857561.png" alt="image-20210405215857561"></p>
 <p>点击箭头即可开始运行，关于其他图标的作用，可以鼠标挪到图标上等待出现文字提示，其中有暂停，停止，单步运行，单步跳过，单步返回。</p>
 <p>在程序中可以在代码前面行号上双击<strong>添加断点</strong>。其实这些是一些基本调试方法。</p>
 <ul>
@@ -636,11 +636,11 @@
 </ul>
 <p>首先点击顶部菜单栏 View ，可以分别打开Expressions 、Registers</p>
 <p>在Expressions  中可以查看想要的变量，手动填写或者在程序中选择要添加的变量，右键，然后：</p>
-<img src="单片机学习入门（一）/image-20210405220511081.png" alt="image-20210405220511081" style="zoom:67%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405220511081.png" alt="image-20210405220511081" style="zoom:67%;">
 
 <p>对于MSP430单片机，在程序中添加断点，当程序暂停才可以查看添加的变量当前的值。</p>
 <p>同理，Register窗口可以查看所有寄存器的值。</p>
-<img src="单片机学习入门（一）/image-20210405220652715.png" alt="image-20210405220652715" style="zoom:67%;" />
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405220652715.png" alt="image-20210405220652715" style="zoom:67%;">
 
 <p>对于上述操作，可以查看<a target="_blank" rel="noopener" href="https://b23.tv/AVMvt3">调试功能使用</a> 视频演示。</p>
 <h2 id="2-2-开始学习第一个程序"><a href="#2-2-开始学习第一个程序" class="headerlink" title="2.2 开始学习第一个程序"></a>2.2 开始学习第一个程序</h2><p>回到例程，在2.1章节中讲到，G2553官方只提供了寄存器级别的例程，因此这里开发也会基于寄存器。</p>
@@ -656,7 +656,7 @@
 <p> 表示读取P1DIR寄存器并和0x01做或运算并写入P1DIR;</p>
 <p> 这里P1DIR就是一个寄存器，包含八个bit，控制着P1整个端口8个IO的输入输出方向的配置，其每一个bit控制着一个IO</p>
 <p> 回到单片机的用户指南，《<a target="_blank" rel="noopener" href="https://www.ti.com.cn/cn/lit/ug/slau144j/slau144j.pdf?ts=1617611245296&ref_url=https%253A%252F%252Fwww.ti.com.cn%252Fproduct%252Fcn%252FMSP430G2553">MSP430G2553用户指南</a>》，在数字IO部分（P327)：</p>
- <img src="单片机学习入门（一）/image-20210405221926400.png" alt="image-20210405221926400" style="zoom:50%;" />
+ <img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405221926400.png" alt="image-20210405221926400" style="zoom:50%;">
  
  可以看到，寄存器的功能在于配置引脚的方向。
  
@@ -682,7 +682,7 @@
  
  在CCS中，按住Ctrl键，同时点击变量即可查看变量的定义位置，按住Ctrl点击BIT0, 可以看到其宏定义的内容：
  
- <img src="单片机学习入门（一）/image-20210405223334092.png" alt="image-20210405223334092" style="zoom:50%;" />
+ <img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405223334092.png" alt="image-20210405223334092" style="zoom:50%;">
  
  顺便一提，在CCS中代码自动补全的快捷键是Alt+/。
  
@@ -787,26 +787,26 @@
 <p>4.相机更新到固件1.0.3 <a target="_blank" rel="noopener" href="http://web.canon.jp/imaging/eosdigital2/e3kr2_firmware-e.html(%E6%AD%A5%E9%AA%A4%E7%95%A5)">http://web.canon.jp/imaging/eosdigital2/e3kr2_firmware-e.html(步骤略)</a></p>
 <p>5.软件包，包含AUTOEXEC.BIN scanled.fir cardtricks.exe（下图）</p>
 <p>6.HxD软件或者其他二进制磁盘编辑工具如WinHex（可选）</p>
-<p><img src="%E4%BD%B3%E8%83%BDEOS350D%E7%A0%B4%E8%A7%A3/image-20210223155419837.png" alt="image-20210223155419837"></p>
+<p><img src="/2021/02/23/%E4%BD%B3%E8%83%BDEOS350D%E7%A0%B4%E8%A7%A3/image-20210223155419837.png" alt="image-20210223155419837"></p>
 <h1 id="开始固件更换"><a href="#开始固件更换" class="headerlink" title="开始固件更换"></a>开始固件更换</h1><p>1.格式化CF卡，在电脑上快速格式化即可。</p>
 <p>2.复制软件包内的scanled.fir到CF卡根目录，插入相机后在相机内选择更新固件。</p>
 <p>（Menu-最后一栏-固件版本-确定），会显示下图。</p>
-<p><img src="%E4%BD%B3%E8%83%BDEOS350D%E7%A0%B4%E8%A7%A3/image-20210223155506019.png" alt="image-20210223155506019"></p>
+<p><img src="/2021/02/23/%E4%BD%B3%E8%83%BDEOS350D%E7%A0%B4%E8%A7%A3/image-20210223155506019.png" alt="image-20210223155506019"></p>
 <p>3.这时候应该是蓝色的灯常亮，这时候先拔掉电池，然后拔掉CF卡。</p>
 <h1 id="开始制作可启动CF卡"><a href="#开始制作可启动CF卡" class="headerlink" title="开始制作可启动CF卡"></a>开始制作可启动CF卡</h1><p>破解的方法是从CF卡启动固件，需要修改卡内磁盘数据。</p>
 <p>1.插入CF卡，打开软件包内的CardTricks</p>
 <p>2.按照下图操作</p>
-<p><img src="%E4%BD%B3%E8%83%BDEOS350D%E7%A0%B4%E8%A7%A3/image-20210223155601573.png" alt="image-20210223155601573"></p>
+<p><img src="/2021/02/23/%E4%BD%B3%E8%83%BDEOS350D%E7%A0%B4%E8%A7%A3/image-20210223155601573.png" alt="image-20210223155601573"></p>
 <p>3.会提示结果，实际上就是对于FAT16文件系统</p>
 <p>在0x24处和0x40处写入对应字符。FAT32文件系</p>
 <p>统同理。所以用磁盘编辑工具也可以手动修改。</p>
-<p><img src="%E4%BD%B3%E8%83%BDEOS350D%E7%A0%B4%E8%A7%A3/image-20210223155622050.png" alt="image-20210223155622050"></p>
+<p><img src="/2021/02/23/%E4%BD%B3%E8%83%BDEOS350D%E7%A0%B4%E8%A7%A3/image-20210223155622050.png" alt="image-20210223155622050"></p>
 <h1 id="从CF卡启动"><a href="#从CF卡启动" class="headerlink" title="从CF卡启动"></a>从CF卡启动</h1><p>这一步是放入自动执行固件。</p>
 <p>1.拷贝AUTOEXEC.BIN到CF卡根目录。</p>
 <p>2.插卡，插电池，开机看到蓝灯闪一下。</p>
 <h1 id="验证功能"><a href="#验证功能" class="headerlink" title="验证功能"></a>验证功能</h1><p>新功能都在Info键内。</p>
 <p>按一下INFO键，然后按上下键可以翻动条目，按左右键可以修改每一条对应的可选项。（破解前不行）</p>
-<p><img src="%E4%BD%B3%E8%83%BDEOS350D%E7%A0%B4%E8%A7%A3/image-20210223155928781.png" alt="image-20210223155928781"></p>
+<p><img src="/2021/02/23/%E4%BD%B3%E8%83%BDEOS350D%E7%A0%B4%E8%A7%A3/image-20210223155928781.png" alt="image-20210223155928781"></p>
 <p>最后，这个卡不要格式化，不然就要重新破解一次了。</p>
 
       
@@ -957,7 +957,7 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
