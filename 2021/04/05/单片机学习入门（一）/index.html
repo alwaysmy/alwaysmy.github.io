@@ -49,9 +49,11 @@
 <meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405222304730.png">
 <meta property="og:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405223334092.png">
 <meta property="article:published_time" content="2021-04-05T09:02:19.000Z">
-<meta property="article:modified_time" content="2022-09-21T20:10:51.994Z">
+<meta property="article:modified_time" content="2022-12-17T03:49:37.722Z">
 <meta property="article:author" content="Always L">
-<meta property="article:tag" content="MSP430 ARM 8051">
+<meta property="article:tag" content="MSP430">
+<meta property="article:tag" content="ARM">
+<meta property="article:tag" content="8051">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://alwaysmy.github.io/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%B0%81%E9%9D%A2.png">
 
@@ -143,7 +145,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -209,7 +211,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-22 04:10:51" itemprop="dateModified" datetime="2022-09-22T04:10:51+08:00">2022-09-22</time>
+                <time title="修改时间：2022-12-17 11:49:37" itemprop="dateModified" datetime="2022-12-17T11:49:37+08:00">2022-12-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -217,7 +219,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">嵌入式</span></a>
+                  <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">嵌入式与单片机</span></a>
                 </span>
             </span>
 
@@ -246,13 +248,22 @@
 <p>例如我们即将用到的 MSP-EXP430G2(-ET) 。</p>
 <p>对于其他类型的单片机，市面上常见的8051系列产品（如STC、WCH等），ARM产品（如ST、NXP等)，有的也有官方提供的核心板或者网上有卖家提供的产品。</p>
 <h3 id="1-2-G2-launchpad-介绍"><a href="#1-2-G2-launchpad-介绍" class="headerlink" title="1.2 G2 launchpad 介绍"></a>1.2 G2 launchpad 介绍</h3><ul>
-<li><em>对于已有的资源，首先进行了解方便后续的学习</em><img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%B0%81%E9%9D%A2.png" alt="单片机封面"><h4 id="1-2-1-从官方下载板卡资料。"><a href="#1-2-1-从官方下载板卡资料。" class="headerlink" title="1.2.1 从官方下载板卡资料。"></a>1.2.1 从官方下载板卡资料。</h4>从官网可以找到 <a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/MSP-EXP430G2?keyMatch=EXP%20G2&tisearch=search-everything">MSP-EXP430G2</a> 的产品资料，对于 TI 的产品还有别的方法进行下载，将在后面开发环境章节进行介绍。找到 <em><strong>MSP-EXP430G2 Hardware Design Files</strong></em> ，其中包含了设计原理图（有助于在硬件连接的时候进行参考），设计PCB文件。在这个产品提供的硬件设计资源（原理图和PCB文件）为 <a target="_blank" rel="noopener" href="http://eagle.autodesk.com/">Eagle</a> 所制造，其文件可以用Eagle或者 <a target="_blank" rel="noopener" href="https://www.autodesk.com.cn/products/fusion-360/overview">Fusion 360</a> 打开查看：<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405185841746.png" alt="image-20210405185841746" style="zoom:75%;">
-
-<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405185950827.png" alt="image-20210405185950827" style="zoom:75%;">
-
-一般查看PDF文件即可。<hr>
-在PDF查看原理图的时候，可以看到电路分为三部分，其中包含了接口，仿真器和单片机最小系统（后面称之为核心板）。简单介绍一下 Launchpad 的组成:下载器通过单片机的SWD接口可以下载程序到单片机，同时可以访问单片机内部资源因此可以仿真，这个下载器是TI的专用下载器，在 MSP-EXP430G2 这块开发板上，使用的下载器限制较大，只能下载部分MSP430单片机，同时提供一个串口用来连接调试。在新版的 MSP430G2553 开发板 <a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/MSP-EXP430G2ET">MSP-EXP430G2ET</a> 上，以及其他430 launchpad 上，使用的下载器为硬件开源的 <a target="_blank" rel="noopener" href="http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/MSP430_ezFETLite/latest/index_FDS.html">MSP430_ezFETLite</a> ，具有更好的性能，可以下载几乎所有的MSP430系列单片机，同时提供串口。</li>
+<li><p><em>对于已有的资源，首先进行了解方便后续的学习</em></p>
+<p><img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8D%95%E7%89%87%E6%9C%BA%E5%B0%81%E9%9D%A2.png" alt="单片机封面"></p>
+<h4 id="1-2-1-从官方下载板卡资料。"><a href="#1-2-1-从官方下载板卡资料。" class="headerlink" title="1.2.1 从官方下载板卡资料。"></a>1.2.1 从官方下载板卡资料。</h4><p>从官网可以找到 <a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/MSP-EXP430G2?keyMatch=EXP%20G2&tisearch=search-everything">MSP-EXP430G2</a> 的产品资料，对于 TI 的产品还有别的方法进行下载，将在后面开发环境章节进行介绍。</p>
+<p>找到 <em><strong>MSP-EXP430G2 Hardware Design Files</strong></em> ，其中包含了设计原理图（有助于在硬件连接的时候进行参考），设计PCB文件。</p>
+<p>在这个产品提供的硬件设计资源（原理图和PCB文件）为 <a target="_blank" rel="noopener" href="http://eagle.autodesk.com/">Eagle</a> 所制造，其文件可以用Eagle或者 <a target="_blank" rel="noopener" href="https://www.autodesk.com.cn/products/fusion-360/overview">Fusion 360</a> 打开查看：</p>
+</li>
 </ul>
+  <img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405185841746.png" alt="image-20210405185841746" style="zoom:75%;">
+
+  <img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405185950827.png" alt="image-20210405185950827" style="zoom:75%;">
+
+<p>  一般查看PDF文件即可。</p>
+<hr>
+<p>  在PDF查看原理图的时候，可以看到电路分为三部分，其中包含了接口，仿真器和单片机最小系统（后面称之为核心板）。</p>
+<p>  简单介绍一下 Launchpad 的组成:</p>
+<p>  下载器通过单片机的SWD接口可以下载程序到单片机，同时可以访问单片机内部资源因此可以仿真，这个下载器是TI的专用下载器，在 MSP-EXP430G2 这块开发板上，使用的下载器限制较大，只能下载部分MSP430单片机，同时提供一个串口用来连接调试。在新版的 MSP430G2553 开发板 <a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/MSP-EXP430G2ET">MSP-EXP430G2ET</a> 上，以及其他430 launchpad 上，使用的下载器为硬件开源的 <a target="_blank" rel="noopener" href="http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/MSP430_ezFETLite/latest/index_FDS.html">MSP430_ezFETLite</a> ，具有更好的性能，可以下载几乎所有的MSP430系列单片机，同时提供串口。</p>
 <h4 id="1-2-2-从官方下载芯片数据和用户指南手册以及例程。"><a href="#1-2-2-从官方下载芯片数据和用户指南手册以及例程。" class="headerlink" title="1.2.2 从官方下载芯片数据和用户指南手册以及例程。"></a>1.2.2 从官方下载芯片数据和用户指南手册以及例程。</h4><p>  不同的单片机厂商都会在其产品主页提供用户手册和产品数据表供使用。对于 TI 的产品，可以直接在其官网搜索对应的产品型号并点击进入，或者在CCS中下载其产品支持包，这个方法在开发环境章节中讲解。顺便一提，如果使用Bing或者Google作为搜索引擎，直接搜索找数据表和手册是一件很容易的事情。</p>
 <p>  同时，对于单片机类产品，通常官方会提供例程供开发使用，因为单看手册就写有点麻烦。这里以MSP430G2553 为例，讲解一下如何在毫无了解的情况下进行入门：</p>
 <p>  <img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405192138665.png" alt="image-20210405192138665"></p>
@@ -267,7 +278,7 @@
 <h4 id="1-2-3-硬件信息补充"><a href="#1-2-3-硬件信息补充" class="headerlink" title="1.2.3 硬件信息补充"></a>1.2.3 硬件信息补充</h4><p>  针对 TI 的开发板，其只是一个核心板，因此如果需要扩展功能，可以引线出来，也可以通过外接拓展板，这个拓展板子TI为其提供了一个通用的格式，称之为 <a target="_blank" rel="noopener" href="https://github.com/adrianF-TI/BuildYourOwnBoosterPack">BoosterPack</a> 插件，可以通过这个模板进行自己的开发。</p>
 <h3 id="1-3-集成开发环境介绍"><a href="#1-3-集成开发环境介绍" class="headerlink" title="1.3 集成开发环境介绍"></a>1.3 集成开发环境介绍</h3><p>要进行单片机开发，首先选择合适的集成开发环境（ IDE )，并基于这个IDE进行开发。</p>
 <p>首先，可以认为，官方所提供开发的集成开发环境通常是最方便的，因为能得到较好的技术支持，而且官方提供的 IDE 通常是免费的。</p>
-<p>在上一章节中，在<strong>设计与开发</strong>内，TI 介绍了<a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/CCSTUDIO-MSP"> Code Composer Studio (CCS)</a> ，也介绍了<a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/IAR-KICKSTART">IAR 嵌入式工作平台 Kickstart - 免费 8KB 版本</a>.  </p>
+<p>在上一章节中，在<strong>设计与开发</strong>内，TI 介绍了<a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/CCSTUDIO-MSP"> Code Composer Studio (CCS)</a> ，也介绍了<a target="_blank" rel="noopener" href="https://www.ti.com.cn/tool/cn/IAR-KICKSTART">IAR 嵌入式工作平台 Kickstart - 免费 8KB 版本</a>.</p>
 <p>其中，可以看到：</p>
 <img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405194214472.png" alt="image-20210405194214472" style="zoom:80%;">
 
@@ -283,8 +294,9 @@
 
 <hr>
 <h1 id="2-使用CCS开发自己的第一个单片机程序–Blink"><a href="#2-使用CCS开发自己的第一个单片机程序–Blink" class="headerlink" title="2.使用CCS开发自己的第一个单片机程序–Blink"></a>2.使用CCS开发自己的第一个单片机程序–Blink</h1><p>单片机到手第一件事情–正如一门编程语言第一件事是输出hello word – 便是点亮一个LED ( 有的 MSP430 单片机可以通过调试台输出 Hello world，G2553 不行，因为资源不足 ) 。</p>
-<p>这里如果更愿意查看视频，可以选择查看视频教程：<a target="_blank" rel="noopener" href="https://b23.tv/PVyOq4">新建工程</a> <a target="_blank" rel="noopener" href="https://b23.tv/hHMsnp">资源搜索器</a>  <a target="_blank" rel="noopener" href="https://b23.tv/AVMvt3">调试功能使用</a> </p>
-<h2 id="2-1学习使用CCS"><a href="#2-1学习使用CCS" class="headerlink" title="2.1学习使用CCS"></a>2.1学习使用CCS</h2><h3 id="2-1-1-新建工程与导入导出工程"><a href="#2-1-1-新建工程与导入导出工程" class="headerlink" title="2.1.1 新建工程与导入导出工程"></a>2.1.1 新建工程与导入导出工程</h3><p>​    首先是CCS 进行安装，这个需要注意安装包路径以及安装路径以及电脑用户名（因为使用了临时目录包含用户名）不要包含中文以及其他非ASCII码值的符号。</p>
+<p>这里如果更愿意查看视频，可以选择查看视频教程：<a target="_blank" rel="noopener" href="https://b23.tv/PVyOq4">新建工程</a> <a target="_blank" rel="noopener" href="https://b23.tv/hHMsnp">资源搜索器</a>  <a target="_blank" rel="noopener" href="https://b23.tv/AVMvt3">调试功能使用</a></p>
+<h2 id="2-1学习使用CCS"><a href="#2-1学习使用CCS" class="headerlink" title="2.1学习使用CCS"></a>2.1学习使用CCS</h2><h3 id="2-1-1-新建工程与导入导出工程"><a href="#2-1-1-新建工程与导入导出工程" class="headerlink" title="2.1.1 新建工程与导入导出工程"></a>2.1.1 新建工程与导入导出工程</h3><pre><code>首先是CCS 进行安装，这个需要注意安装包路径以及安装路径以及电脑用户名（因为使用了临时目录包含用户名）不要包含中文以及其他非ASCII码值的符号。
+</code></pre>
 <p>打开CCS后首先选择工作空间，即放置工程的文件夹。</p>
 <p>然后新建一个CCS工程。</p>
 <p>不同的版本可能有不同，但是整体上都是点击顶部菜单栏-File - new -project(CCS project),或者直接选择菜单栏上的Project - new CCS project.</p>
@@ -303,7 +315,7 @@
 <ol>
 <li>其中 Target 可以直接搜索所使用的单片机，这里我们使用的单片机型号是MSP430G2553，所以进行选择。</li>
 <li>Connection 是连接单片机的方式，这里保持默认也就是使用板载仿真器。</li>
-<li>然后命名你的工程 Project name , 推荐工程使用文件名加日期方便管理加信息（例如 <em>demo_blink_20210401_ver1</em> ) </li>
+<li>然后命名你的工程 Project name , 推荐工程使用文件名加日期方便管理加信息（例如 <em>demo_blink_20210401_ver1</em> )</li>
 <li>其他Tool-chain选择保持默认，最下面提示的<strong>Resource Explorer</strong> 将在后面介绍。</li>
 <li>在最下面的模板中，可选择空工程或者基本例程，这里点击基本例程 blink the LED， 对这个例程进行讲解。</li>
 </ol>
@@ -328,8 +340,8 @@
 <img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405212820390.png" alt="image-20210405212820390" style="zoom:50%;"></li>
 </ol>
 <p>Demo中包含了一些应用例程，而Peripheral Examples（外设例程）选择MSP430G2553，可以看到Assembly –也就是汇编 ，和Register Level ( 寄存器级例程 )，也就是这里只有寄存器编程没有库函数编程。</p>
-<p>下面的 xx.c 文件指示了不同外设的例程，例如需要使用IO, </p>
-<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405213926925.png" alt="image-20210405213926925" style="zoom:67%;"> 
+<p>下面的 xx.c 文件指示了不同外设的例程，例如需要使用IO,</p>
+<img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405213926925.png" alt="image-20210405213926925" style="zoom:67%;">
 
 <p>这些文件是下载后（也就是前面的install）存在本地的，路径与CCS安装路径相同，推荐安装软件 <a target="_blank" rel="noopener" href="https://www.voidtools.com/zh-cn/">everything</a> 搜索对应的文件名，可以直接点击到文件夹查看。</p>
 <p><img src="/2021/04/05/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20210405214238500.png" alt="image-20210405214238500"></p>
@@ -359,7 +371,7 @@
 <p>对于上述操作，可以查看<a target="_blank" rel="noopener" href="https://b23.tv/AVMvt3">调试功能使用</a> 视频演示。</p>
 <h2 id="2-2-开始学习第一个程序"><a href="#2-2-开始学习第一个程序" class="headerlink" title="2.2 开始学习第一个程序"></a>2.2 开始学习第一个程序</h2><p>回到例程，在2.1章节中讲到，G2553官方只提供了寄存器级别的例程，因此这里开发也会基于寄存器。</p>
 <p>往往通过例程会更简单，因此这里首先查看例程进行学习。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;msp430.h&gt;                    //首先包含头文件        </span></span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * blink.c</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">       <span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">       WDTCTL = WDTPW | WDTHOLD;        <span class="comment">// stop watchdog timer</span></span><br><span class="line">   P1DIR |= <span class="number">0x01</span>;                    <span class="comment">// configure P1.0 as output</span></span><br><span class="line"></span><br><span class="line">       <span class="keyword">volatile</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> i;        <span class="comment">// volatile to prevent optimization</span></span><br><span class="line"></span><br><span class="line">       <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">       &#123;</span><br><span class="line">       P1OUT ^= <span class="number">0x01</span>;                <span class="comment">// toggle P1.0</span></span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">10000</span>; i&gt;<span class="number">0</span>; i--);     <span class="comment">// delay</span></span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;msp430.h&gt;                    //首先包含头文件      </span></span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * blink.c</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">       <span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">       WDTCTL = WDTPW | WDTHOLD;        <span class="comment">// stop watchdog timer</span></span><br><span class="line">   P1DIR |= <span class="number">0x01</span>;                    <span class="comment">// configure P1.0 as output</span></span><br><span class="line"></span><br><span class="line">       <span class="keyword">volatile</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> i;        <span class="comment">// volatile to prevent optimization</span></span><br><span class="line"></span><br><span class="line">       <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">       &#123;</span><br><span class="line">       P1OUT ^= <span class="number">0x01</span>;                <span class="comment">// toggle P1.0</span></span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">10000</span>; i&gt;<span class="number">0</span>; i--);     <span class="comment">// delay</span></span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p> 这个程序是例程Blink the LED ,回到第一章节中的原理图，可以看到在G2 launchpad上，P1.0引脚通过跳线帽连接了一个LED.</p>
 <p> 因此任务目标是使P1.0循环输出高低电平。</p>
@@ -415,7 +427,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/MSP430-ARM-8051/" rel="tag"># MSP430 ARM 8051</a>
+              <a href="/tags/MSP430/" rel="tag"># MSP430</a>
+              <a href="/tags/ARM/" rel="tag"># ARM</a>
+              <a href="/tags/8051/" rel="tag"># 8051</a>
           </div>
 
         
@@ -510,12 +524,12 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
