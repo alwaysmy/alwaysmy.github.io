@@ -172,7 +172,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/12/27/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/0_RP2040%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">树莓派Raspberry Pico RP2040 开发环境配置骨灰版</a>
+            <a href="/2022/12/27/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/0_RP2040%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">树莓派 RP2040 开发环境配置骨灰版(Raspberry Pico)</a>
         </h2>
 
         <div class="post-meta">
@@ -183,7 +183,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-12-27 19:26:30 / 修改时间：19:29:46" itemprop="dateCreated datePublished" datetime="2022-12-27T19:26:30+08:00">2022-12-27</time>
+              <time title="创建时间：2022-12-27 19:26:30 / 修改时间：19:32:28" itemprop="dateCreated datePublished" datetime="2022-12-27T19:26:30+08:00">2022-12-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -206,7 +206,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="树莓派Raspberry-Pico-RP2040-开发环境配置骨灰版"><a href="#树莓派Raspberry-Pico-RP2040-开发环境配置骨灰版" class="headerlink" title="树莓派Raspberry Pico RP2040 开发环境配置骨灰版"></a>树莓派Raspberry Pico RP2040 开发环境配置骨灰版</h1><h2 id="前置说明"><a href="#前置说明" class="headerlink" title="前置说明"></a>前置说明</h2><p>    RP2040作为一款树莓派的单片机，一开始我以为会有很成熟的开发方案，结果发现网上的配置方法大多数是照着官方给的方法一抄，完全没有解释里面各个部分需要做什么的原因以及有什么过程需要了解学习，甚至没有说这个配置方案就是官方文档给出的【1】（我最开始看的手册还没更新树莓派以外平台的写法，所以蒙圈了好久，以为这些环境配置方法是他们经验丰富才能总结出来的）。这些方法基本上都是照着文档来配置，好点的会给几个填坑的说明，然后到了调试配置阶段都是直接默认使用官方给出的picoprobe调试器的配置方法，实在是让人看了捉急，难道你们开发单片机都不用开Debug吗</p>
+          <h1 id="树莓派-RP2040-开发环境配置骨灰版-Raspberry-Pico"><a href="#树莓派-RP2040-开发环境配置骨灰版-Raspberry-Pico" class="headerlink" title="树莓派 RP2040 开发环境配置骨灰版(Raspberry Pico)"></a>树莓派 RP2040 开发环境配置骨灰版(Raspberry Pico)</h1><h2 id="前置说明"><a href="#前置说明" class="headerlink" title="前置说明"></a>前置说明</h2><p>    RP2040作为一款树莓派的单片机，一开始我以为会有很成熟的开发方案，结果发现网上的配置方法大多数是照着官方给的方法一抄，完全没有解释里面各个部分需要做什么的原因以及有什么过程需要了解学习，甚至没有说这个配置方案就是官方文档给出的【1】（我最开始看的手册还没更新树莓派以外平台的写法，所以蒙圈了好久，以为这些环境配置方法是他们经验丰富才能总结出来的）。这些方法基本上都是照着文档来配置，好点的会给几个填坑的说明，然后到了调试配置阶段都是直接默认使用官方给出的picoprobe调试器的配置方法，实在是让人看了捉急，难道你们开发单片机都不用开Debug吗</p>
 <p>    这里总结了方法，先记录下来，当然还有一些东西没来得及琢磨 —- 之前我都是喜欢开箱即用的懒人，然而pico这个官方给的配置方法（C-SDK）实属不当人。</p>
 <p>先在这里解释一下公共的部分：</p>
 <h3 id="0-1-关于调试使用的Debugger"><a href="#0-1-关于调试使用的Debugger" class="headerlink" title="0.1 关于调试使用的Debugger"></a>0.1 关于调试使用的Debugger</h3><p>        官方做了一个特殊的daplink，叫做picoprobe, 就是直接用pico的板子加载一个dap的固件。在之前的说明中，包括现在的文档都指出这个picoprobe所使用的openOCD都需要raspberry分支下的openocd才能用，同样，配置文件也是专用的。       我目前还没试不知道普通的cmsis-dap的配置能不能用，也不知道能不能直接用通用的openocd，因为我没有picoprobe。但是标准的cmsisdap v2是部分可用的，不过实测v1的似乎都不能连接上多核，单核似乎也不行，不过也不是所有v2固件的daplink都可以连接上，具体原因未知。目前测试基本正常的是wch-link。</p>
