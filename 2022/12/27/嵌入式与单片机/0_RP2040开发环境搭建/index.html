@@ -20,30 +20,38 @@
     var CONFIG = {"hostname":"alwaysmy.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="硬件，杂项，爱好">
-<meta property="og:type" content="website">
-<meta property="og:title" content="加载中...">
-<meta property="og:url" content="https://alwaysmy.github.io/index.html">
+  <meta name="description" content="树莓派Raspberry Pico RP2040 开发环境配置骨灰版前置说明    RP2040作为一款树莓派的单片机，一开始我以为会有很成熟的开发方案，结果发现网上的配置方法大多数是照着官方给的方法一抄，完全没有解释里面各个部分需要做什么的原因以及有什么过程需要了解学习，甚至没有说这个配置方案就是官方文档给出的【1】（我最开始看的手册还没更新树莓派以外平台的写法，所以蒙圈了好久，以为这些环境配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派Raspberry Pico RP2040 开发环境配置骨灰版">
+<meta property="og:url" content="https://alwaysmy.github.io/2022/12/27/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/0_RP2040%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="加载中...">
-<meta property="og:description" content="硬件，杂项，爱好">
+<meta property="og:description" content="树莓派Raspberry Pico RP2040 开发环境配置骨灰版前置说明    RP2040作为一款树莓派的单片机，一开始我以为会有很成熟的开发方案，结果发现网上的配置方法大多数是照着官方给的方法一抄，完全没有解释里面各个部分需要做什么的原因以及有什么过程需要了解学习，甚至没有说这个配置方案就是官方文档给出的【1】（我最开始看的手册还没更新树莓派以外平台的写法，所以蒙圈了好久，以为这些环境配置">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://alwaysmy.github.io/2022/12/27/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/0_RP2040%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/MyProjects/4_MyOutputs/学习内容的输出/单片机开发环境的配置/RP2040开发环境搭建/0_RP2040开发环境搭建/arduino框架可以调试双核-wchLink.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2022/12/27/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/0_RP2040%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/.%5C0_RP2040%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%5Cpico-project-generator1.png">
+<meta property="og:image" content="https://alwaysmy.github.io/2022/12/27/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/0_RP2040%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/0_RP2040%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%5C%E5%BA%95%E8%BE%B9%E6%A0%8F%E9%80%89%E6%8B%A9%E5%B7%A5%E5%85%B7%E7%AE%B1.png?msec=1670169712467">
+<meta property="article:published_time" content="2022-12-27T11:26:30.000Z">
+<meta property="article:modified_time" content="2022-12-27T11:29:46.355Z">
 <meta property="article:author" content="Always L">
+<meta property="article:tag" content="ARM">
+<meta property="article:tag" content="rp2040">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alwaysmy.github.io/2022/12/27/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/0_RP2040%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/MyProjects/4_MyOutputs/学习内容的输出/单片机开发环境的配置/RP2040开发环境搭建/0_RP2040开发环境搭建/arduino框架可以调试双核-wchLink.png">
 
-<link rel="canonical" href="https://alwaysmy.github.io/">
+<link rel="canonical" href="https://alwaysmy.github.io/2022/12/27/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/0_RP2040%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>加载中...</title>
+  <title>树莓派Raspberry Pico RP2040 开发环境配置骨灰版 | 加载中...</title>
   
 
 
@@ -152,9 +160,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -170,10 +179,9 @@
       <meta itemprop="name" content="加载中...">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/27/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/0_RP2040%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">树莓派Raspberry Pico RP2040 开发环境配置骨灰版</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          树莓派Raspberry Pico RP2040 开发环境配置骨灰版
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -206,7 +214,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="树莓派Raspberry-Pico-RP2040-开发环境配置骨灰版"><a href="#树莓派Raspberry-Pico-RP2040-开发环境配置骨灰版" class="headerlink" title="树莓派Raspberry Pico RP2040 开发环境配置骨灰版"></a>树莓派Raspberry Pico RP2040 开发环境配置骨灰版</h1><h2 id="前置说明"><a href="#前置说明" class="headerlink" title="前置说明"></a>前置说明</h2><p>    RP2040作为一款树莓派的单片机，一开始我以为会有很成熟的开发方案，结果发现网上的配置方法大多数是照着官方给的方法一抄，完全没有解释里面各个部分需要做什么的原因以及有什么过程需要了解学习，甚至没有说这个配置方案就是官方文档给出的【1】（我最开始看的手册还没更新树莓派以外平台的写法，所以蒙圈了好久，以为这些环境配置方法是他们经验丰富才能总结出来的）。这些方法基本上都是照着文档来配置，好点的会给几个填坑的说明，然后到了调试配置阶段都是直接默认使用官方给出的picoprobe调试器的配置方法，实在是让人看了捉急，难道你们开发单片机都不用开Debug吗</p>
+        <h1 id="树莓派Raspberry-Pico-RP2040-开发环境配置骨灰版"><a href="#树莓派Raspberry-Pico-RP2040-开发环境配置骨灰版" class="headerlink" title="树莓派Raspberry Pico RP2040 开发环境配置骨灰版"></a>树莓派Raspberry Pico RP2040 开发环境配置骨灰版</h1><h2 id="前置说明"><a href="#前置说明" class="headerlink" title="前置说明"></a>前置说明</h2><p>    RP2040作为一款树莓派的单片机，一开始我以为会有很成熟的开发方案，结果发现网上的配置方法大多数是照着官方给的方法一抄，完全没有解释里面各个部分需要做什么的原因以及有什么过程需要了解学习，甚至没有说这个配置方案就是官方文档给出的【1】（我最开始看的手册还没更新树莓派以外平台的写法，所以蒙圈了好久，以为这些环境配置方法是他们经验丰富才能总结出来的）。这些方法基本上都是照着文档来配置，好点的会给几个填坑的说明，然后到了调试配置阶段都是直接默认使用官方给出的picoprobe调试器的配置方法，实在是让人看了捉急，难道你们开发单片机都不用开Debug吗</p>
 <p>    这里总结了方法，先记录下来，当然还有一些东西没来得及琢磨 —- 之前我都是喜欢开箱即用的懒人，然而pico这个官方给的配置方法（C-SDK）实属不当人。</p>
 <p>先在这里解释一下公共的部分：</p>
 <h3 id="0-1-关于调试使用的Debugger"><a href="#0-1-关于调试使用的Debugger" class="headerlink" title="0.1 关于调试使用的Debugger"></a>0.1 关于调试使用的Debugger</h3><p>        官方做了一个特殊的daplink，叫做picoprobe, 就是直接用pico的板子加载一个dap的固件。在之前的说明中，包括现在的文档都指出这个picoprobe所使用的openOCD都需要raspberry分支下的openocd才能用，同样，配置文件也是专用的。       我目前还没试不知道普通的cmsis-dap的配置能不能用，也不知道能不能直接用通用的openocd，因为我没有picoprobe。但是标准的cmsisdap v2是部分可用的，不过实测v1的似乎都不能连接上多核，单核似乎也不行，不过也不是所有v2固件的daplink都可以连接上，具体原因未知。目前测试基本正常的是wch-link。</p>
@@ -791,673 +799,34 @@ target remote 192.168.31.16:3333
 
 <p><a target="_blank" rel="noopener" href="https://lonesometraveler.github.io/2020/03/27/debug.html">Cortex-Debug for Visual Studio Code | Alone on a Mountaintop (lonesometraveler.github.io)</a></p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/ARM/" rel="tag"># ARM</a>
+              <a href="/tags/rp2040/" rel="tag"># rp2040</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://alwaysmy.github.io/2022/11/23/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/SD%E7%9F%A5%E8%AF%86%E6%A0%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Always L">
-      <meta itemprop="description" content="硬件，杂项，爱好">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="加载中...">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/23/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/SD%E7%9F%A5%E8%AF%86%E6%A0%91/" class="post-title-link" itemprop="url">SD知识树</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-23 00:53:27" itemprop="dateCreated datePublished" datetime="2022-11-23T00:53:27+08:00">2022-11-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-17 14:55:53" itemprop="dateModified" datetime="2022-12-17T14:55:53+08:00">2022-12-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">嵌入式与单片机</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://alwaysmy.github.io/2022/11/23/Fix%20&%20Crack/SSD%E4%BF%AE%E5%A4%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Always L">
-      <meta itemprop="description" content="硬件，杂项，爱好">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="加载中...">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/23/Fix%20&%20Crack/SSD%E4%BF%AE%E5%A4%8D/" class="post-title-link" itemprop="url">SSD修复</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-23 00:53:13" itemprop="dateCreated datePublished" datetime="2022-11-23T00:53:13+08:00">2022-11-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-17 15:05:40" itemprop="dateModified" datetime="2022-12-17T15:05:40+08:00">2022-12-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Fix-Crack/" itemprop="url" rel="index"><span itemprop="name">Fix & Crack</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="慧荣SM2246EN主控山寨固态修复"><a href="#慧荣SM2246EN主控山寨固态修复" class="headerlink" title="慧荣SM2246EN主控山寨固态修复"></a>慧荣SM2246EN主控山寨固态修复</h2><p><em>在某鱼收了一个120G的所谓金士顿v300固态硬盘，也是受到了一些颗粒玩家的影响想要收来做个U盘，便有了下文…</em></p>
-<hr>
-<h4 id="初印象"><a href="#初印象" class="headerlink" title="初印象"></a>初印象</h4><p>当时到手后拆开发现内部主控为慧荣SM2246EN，这可不好。。。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/11/23/Fix%20&%20Crack/SSD%E4%BF%AE%E5%A4%8D/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://alwaysmy.github.io/2022/09/25/Work%20with%20the%20world/ADS1263%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Always L">
-      <meta itemprop="description" content="硬件，杂项，爱好">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="加载中...">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/09/25/Work%20with%20the%20world/ADS1263%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">ADS1263性能测试</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-09-25 11:40:36" itemprop="dateCreated datePublished" datetime="2022-09-25T11:40:36+08:00">2022-09-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-17 15:06:47" itemprop="dateModified" datetime="2022-12-17T15:06:47+08:00">2022-12-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Work-with-the-world/" itemprop="url" rel="index"><span itemprop="name">Work with the world</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://alwaysmy.github.io/2022/09/22/Work%20with%20the%20world/%E4%BD%BF%E7%94%A8KiCad%E5%86%85%E7%BD%AE%E7%9A%84NgSpice%E8%BF%9B%E8%A1%8C%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%880%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Always L">
-      <meta itemprop="description" content="硬件，杂项，爱好">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="加载中...">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/09/22/Work%20with%20the%20world/%E4%BD%BF%E7%94%A8KiCad%E5%86%85%E7%BD%AE%E7%9A%84NgSpice%E8%BF%9B%E8%A1%8C%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%880%EF%BC%89/" class="post-title-link" itemprop="url">使用KiCad内置的ngSpice进行电路仿真（0）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-09-22 04:22:19" itemprop="dateCreated datePublished" datetime="2022-09-22T04:22:19+08:00">2022-09-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-17 11:52:41" itemprop="dateModified" datetime="2022-12-17T11:52:41+08:00">2022-12-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Work-with-the-world/" itemprop="url" rel="index"><span itemprop="name">Work with the world</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="ngspice简述"><a href="#ngspice简述" class="headerlink" title="ngspice简述"></a>ngspice简述</h2><p>阅读全文：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/09/22/Work%20with%20the%20world/%E4%BD%BF%E7%94%A8KiCad%E5%86%85%E7%BD%AE%E7%9A%84NgSpice%E8%BF%9B%E8%A1%8C%E7%94%B5%E8%B7%AF%E4%BB%BF%E7%9C%9F%EF%BC%880%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/11/23/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/SD%E7%9F%A5%E8%AF%86%E6%A0%91/" rel="prev" title="SD知识树">
+      <i class="fa fa-chevron-left"></i> SD知识树
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://alwaysmy.github.io/2021/04/20/Work%20with%20the%20world/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Always L">
-      <meta itemprop="description" content="硬件，杂项，爱好">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="加载中...">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/20/Work%20with%20the%20world/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/" class="post-title-link" itemprop="url">Multisim仿真画板一气呵成</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-20 00:15:50" itemprop="dateCreated datePublished" datetime="2021-04-20T00:15:50+08:00">2021-04-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-17 11:32:51" itemprop="dateModified" datetime="2022-12-17T11:32:51+08:00">2022-12-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Work-with-the-world/" itemprop="url" rel="index"><span itemprop="name">Work with the world</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Multisim仿真画板一气呵成"><a href="#Multisim仿真画板一气呵成" class="headerlink" title="Multisim仿真画板一气呵成"></a>Multisim仿真画板一气呵成</h1><h2 id="首先需要了解的"><a href="#首先需要了解的" class="headerlink" title="首先需要了解的"></a>首先需要了解的</h2><ul>
-<li><p>multisim和ultiboard是一套产品，在安装multisim的时候基本都会安装。其中multisim用于原理图和仿真，ultiboard用于PCB. </p>
-</li>
-<li><p>在multisim仿真中，往往会仿真一些模块不是特别复杂但是需要做出来，如果脑补或者用别的软件又略麻烦，于是有了下文。</p>
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/20/Work%20with%20the%20world/Multisim%E4%BB%BF%E7%9C%9F%E5%90%8E%E5%BF%AB%E9%80%9F%E5%B8%83%E5%B1%80/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://alwaysmy.github.io/2021/04/20/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84MSP430%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Always L">
-      <meta itemprop="description" content="硬件，杂项，爱好">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="加载中...">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/20/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84MSP430%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">从零开始的MSP430单片机学习（二）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-20 00:03:48" itemprop="dateCreated datePublished" datetime="2021-04-20T00:03:48+08:00">2021-04-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-17 14:52:05" itemprop="dateModified" datetime="2022-12-17T14:52:05+08:00">2022-12-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">嵌入式与单片机</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在认识了一款单片机产品之后，了解了它的开发方式和特点，就可以考虑使用它的资源了进行开发了。</p>
-<h1 id="1-单片机的资源简介"><a href="#1-单片机的资源简介" class="headerlink" title="1 单片机的资源简介"></a>1 单片机的资源简介</h1><p>这里并不会用太多的篇幅，因为不同的单片机外设不一样，资源不一样，所以重要的是如何去了解。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/20/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84MSP430%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://alwaysmy.github.io/2021/04/05/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Always L">
-      <meta itemprop="description" content="硬件，杂项，爱好">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="加载中...">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/05/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">单片机学习入门（一）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-05 17:02:19" itemprop="dateCreated datePublished" datetime="2021-04-05T17:02:19+08:00">2021-04-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-17 11:49:37" itemprop="dateModified" datetime="2022-12-17T11:49:37+08:00">2022-12-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">嵌入式与单片机</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="从零开始的MSP430单片机学习（一）"><a href="#从零开始的MSP430单片机学习（一）" class="headerlink" title="从零开始的MSP430单片机学习（一）"></a>从零开始的MSP430单片机学习（一）</h1><blockquote>
-<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>单片机学习本身是一个了解学习一个技术的过程，学习的过程中不应该拘泥于某一款，而是要了解学习的方法。</p>
-<p>同时学习技术较快的方法是完成一个完整的项目，同时记录学习中遇到的问题整个培训下来会提供一个或者多个具体的例子供学习，也可自由发挥。</p>
-<p>教程首先会简述单片机的学习方法，然后讲解具体的细节，然后讲解具体的项目来完成学习过程。</p>
-</blockquote>
-<p>本教程会以 MSP430 单片机为主进行讲解，对于接触单片机的初学者，同时推荐阅读《Launchpad口袋实验平台 （指导书）》.</p>
-<hr>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/05/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%8D%95%E7%89%87%E6%9C%BA/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://alwaysmy.github.io/2021/02/23/Fix%20&%20Crack/%E4%BD%B3%E8%83%BDEOS350D%E7%A0%B4%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Always L">
-      <meta itemprop="description" content="硬件，杂项，爱好">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="加载中...">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/23/Fix%20&%20Crack/%E4%BD%B3%E8%83%BDEOS350D%E7%A0%B4%E8%A7%A3/" class="post-title-link" itemprop="url">佳能EOS350D破解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-23 00:52:50" itemprop="dateCreated datePublished" datetime="2021-02-23T00:52:50+08:00">2021-02-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-17 15:07:47" itemprop="dateModified" datetime="2022-12-17T15:07:47+08:00">2022-12-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Fix-Crack/" itemprop="url" rel="index"><span itemprop="name">Fix & Crack</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>1.电池充满电</p>
-<p>2.CF卡</p>
-<p>3.CF卡读卡器（必备，数据线不行）</p>
-<p>4.相机更新到固件1.0.3 <a target="_blank" rel="noopener" href="http://web.canon.jp/imaging/eosdigital2/e3kr2_firmware-e.html(%E6%AD%A5%E9%AA%A4%E7%95%A5)">http://web.canon.jp/imaging/eosdigital2/e3kr2_firmware-e.html(步骤略)</a></p>
-<p>5.软件包，包含AUTOEXEC.BIN scanled.fir cardtricks.exe（下图）</p>
-<p>6.HxD软件或者其他二进制磁盘编辑工具如WinHex（可选）</p>
-<p><img src="/2021/02/23/Fix%20&%20Crack/%E4%BD%B3%E8%83%BDEOS350D%E7%A0%B4%E8%A7%A3/image-20210223155419837.png" alt="image-20210223155419837"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/02/23/Fix%20&%20Crack/%E4%BD%B3%E8%83%BDEOS350D%E7%A0%B4%E8%A7%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -1510,6 +879,7 @@ target remote 192.168.31.16:3333
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BERaspberry-Pico-RP2040-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E9%AA%A8%E7%81%B0%E7%89%88"><span class="nav-number">1.</span> <span class="nav-text">树莓派Raspberry Pico RP2040 开发环境配置骨灰版</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E8%AF%B4%E6%98%8E"><span class="nav-number">1.1.</span> <span class="nav-text">前置说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-1-%E5%85%B3%E4%BA%8E%E8%B0%83%E8%AF%95%E4%BD%BF%E7%94%A8%E7%9A%84Debugger"><span class="nav-number">1.1.1.</span> <span class="nav-text">0.1 关于调试使用的Debugger</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-2-UF2%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%8B%E8%BD%BD%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.2.</span> <span class="nav-text">0.2 UF2文件的下载方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-3-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%9A%84%E8%A7%A3%E9%87%8A"><span class="nav-number">1.1.3.</span> <span class="nav-text">0.3 环境配置的解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-4-%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-number">1.1.4.</span> <span class="nav-text">0.4 参考文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-5-%E8%A7%A3%E9%87%8A%E4%B8%80%E4%B8%8B%E4%B8%8B%E9%9D%A2%E8%AF%B4%E4%BA%86%E4%BB%80%E4%B9%88"><span class="nav-number">1.1.5.</span> <span class="nav-text">0.5 解释一下下面说了什么</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-MicroPython%E7%8E%AF%E5%A2%83"><span class="nav-number">1.2.</span> <span class="nav-text">1 MicroPython环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-PlatformIO%E7%8E%AF%E5%A2%83"><span class="nav-number">1.3.</span> <span class="nav-text">2 PlatformIO环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Arduino%E6%A1%86%E6%9E%B6%E7%8E%AF%E5%A2%83"><span class="nav-number">1.3.1.</span> <span class="nav-text">2.1 Arduino框架环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E5%9F%BA%E4%BA%8Epico-sdk%E7%9A%84%E8%A3%B8%E7%8E%AF%E5%A2%83Wiz-IO"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.2 基于pico-sdk的裸环境Wiz-IO</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%9F%BA%E4%BA%8E%E7%AC%AC%E4%B8%89%E6%96%B9IDE%E9%85%8D%E7%BD%AE"><span class="nav-number">1.4.</span> <span class="nav-text">3 基于第三方IDE配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E5%9F%BA%E4%BA%8EVisualGDB%E7%9A%84Visual-Studio%E5%88%9B%E5%BB%BA%E5%B7%A5%E7%A8%8B"><span class="nav-number">1.4.1.</span> <span class="nav-text">3.1 基于VisualGDB的Visual Studio创建工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E5%9F%BA%E4%BA%8EEmbedded-Studio"><span class="nav-number">1.4.2.</span> <span class="nav-text">3.2 基于Embedded Studio</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85SDK"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">安装SDK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">新建工程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%BF%E7%9C%9F%E4%B8%8B%E8%BD%BD%E8%B0%83%E8%AF%95"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">仿真下载调试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#J-link"><span class="nav-number">1.4.2.3.1.</span> <span class="nav-text">J-link</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Daplink%EF%BC%88Openocd%EF%BC%89"><span class="nav-number">1.4.2.3.2.</span> <span class="nav-text">Daplink（Openocd）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">1.4.2.4.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E5%9F%BA%E4%BA%8ERT-Thread-Studio"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.3 基于RT-Thread Studio</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">使用方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-Keil-MDK"><span class="nav-number">1.4.4.</span> <span class="nav-text">3.4 Keil MDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-%E5%85%B6%E5%AE%9E%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.5.</span> <span class="nav-text">3.5 其实还有很多方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%9F%BA%E4%BA%8E%E5%AE%98%E6%96%B9C%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">1.5.</span> <span class="nav-text">4 基于官方C语言环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%9A%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93"><span class="nav-number">1.5.1.</span> <span class="nav-text">4.1 官方文档的方法总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-Windows%E4%B8%8B%E7%9A%84RP2040%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">1.5.2.</span> <span class="nav-text">4.2 Windows下的RP2040环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1-%E5%AE%89%E8%A3%85%E5%90%84%E7%B1%BB%E5%B7%A5%E5%85%B7%E9%93%BE"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">4.2.1 安装各类工具链</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#a-visual-studio"><span class="nav-number">1.5.2.1.1.</span> <span class="nav-text">a. visual studio</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#b-%E4%BD%BF%E7%94%A8MinGW%E6%9B%BF%E4%BB%A3visual-studio%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.2.1.2.</span> <span class="nav-text">b. 使用MinGW替代visual studio的方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2-%E9%85%8D%E7%BD%AE%E8%B7%AF%E5%BE%84SDK"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">4.2.2 配置路径SDK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-3-%E7%BC%96%E8%AF%91%E4%BE%8B%E7%A8%8B%E6%B5%8B%E8%AF%95"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">4.2.3 编译例程测试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#a-%E5%A6%82%E9%85%8D%E7%BD%AE%E7%9A%84%E6%98%AFvisual-studio%E7%9A%84%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-number">1.5.2.3.1.</span> <span class="nav-text">a. 如配置的是visual studio的编译器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#b-%E5%A6%82%E6%9E%9C%E9%85%8D%E7%BD%AE%E7%9A%84%E6%98%AFMinGW"><span class="nav-number">1.5.2.3.2.</span> <span class="nav-text">b. 如果配置的是MinGW</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A%E4%B8%80%E4%B8%8B%E4%B8%8A%E9%9D%A2%E7%9A%84%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.5.2.3.3.</span> <span class="nav-text">解释一下上面的语句</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-4-%E7%94%9F%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E7%A8%8B%E5%B9%B6%E7%BC%96%E8%AF%91%E7%83%A7%E5%BD%95"><span class="nav-number">1.5.2.4.</span> <span class="nav-text">4.2.4 生成自己的工程并编译烧录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-5%E3%80%81%E5%AE%98%E6%96%B9%E6%96%B9%E6%B3%95%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE%E6%80%BB%E7%BB%93"><span class="nav-number">1.5.2.5.</span> <span class="nav-text">4.2.5、官方方法工程配置总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E9%85%8D%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84IDE"><span class="nav-number">1.5.3.</span> <span class="nav-text">4.3 配置自己的IDE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-1-CLion"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">4.3.1 CLion</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-2-VScode%E4%BD%9C%E4%B8%BAIDE"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">4.3.2 VScode作为IDE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-3-%E5%85%B6%E4%BB%96IDE%E9%85%8D%E7%BD%AE"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">4.3.3  其他IDE配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Eclipse"><span class="nav-number">1.5.3.4.</span> <span class="nav-text">Eclipse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kdevelop%EF%BC%9A"><span class="nav-number">1.5.3.5.</span> <span class="nav-text">Kdevelop：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kate"><span class="nav-number">1.5.3.6.</span> <span class="nav-text">Kate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Codelite"><span class="nav-number">1.5.3.7.</span> <span class="nav-text">Codelite</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Embedded-IDE-on-vscode"><span class="nav-number">1.5.3.8.</span> <span class="nav-text">Embedded IDE on  vscode</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-Linux%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">1.5.4.</span> <span class="nav-text">4.4 Linux环境的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-1-%E5%9F%BA%E4%BA%8EWSL%E5%AE%89%E8%A3%85PICO-C-SDK%E7%8E%AF%E5%A2%83"><span class="nav-number">1.5.4.1.</span> <span class="nav-text">4.3.1 基于WSL安装PICO C-SDK环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E4%BE%8B%E7%A8%8B%E7%BC%96%E8%AF%91%E4%BE%8B%E7%A8%8B"><span class="nav-number">1.5.4.2.</span> <span class="nav-text">下载例程编译例程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8pico-project-generator%E7%94%9F%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E7%A8%8B"><span class="nav-number">1.5.4.3.</span> <span class="nav-text">使用pico-project-generator生成自己的工程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%85%B6%E4%BB%96%E5%8F%A6%E7%B1%BB%E6%96%B9%E6%B3%95"><span class="nav-number">1.6.</span> <span class="nav-text">5 其他另类方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E6%80%BB%E7%BB%93"><span class="nav-number">2.</span> <span class="nav-text">全局总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#swd%E4%B8%8B%E8%BD%BD%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">swd下载方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">开发方法总结：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%A6%82%E6%9E%9C%E4%B8%8D%E9%9C%80%E8%A6%81%E8%B0%83%E8%AF%95%E5%8A%9F%E8%83%BD"><span class="nav-number">4.1.</span> <span class="nav-text">1、如果不需要调试功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E9%9C%80%E8%A6%81%E8%B0%83%E8%AF%95%E7%9A%84%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">2、需要调试的开发方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E8%87%AA%E8%B0%83%E8%AF%95"><span class="nav-number">4.2.1.</span> <span class="nav-text">2.1 自调试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">基本使用方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#GDB%E8%B0%83%E8%AF%95"><span class="nav-number">4.2.1.1.1.</span> <span class="nav-text">GDB调试</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8EVSCode%E7%9A%84%E8%87%AA%E8%B0%83%E8%AF%95"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">基于VSCode的自调试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8debug%E5%B7%A5%E5%85%B7"><span class="nav-number">4.2.2.</span> <span class="nav-text">2.2 使用外部debug工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-%E4%B9%B0%E4%B8%80%E4%B8%AArp2040%E5%81%9A%E4%B8%80%E4%B8%AApicoprobe"><span class="nav-number">4.2.2.1.</span> <span class="nav-text">2.2.1 买一个rp2040做一个picoprobe.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-%E5%85%B6%E4%BB%96%E7%9A%84daplink%E6%88%96%E8%80%85jlink"><span class="nav-number">4.2.2.2.</span> <span class="nav-text">2.2.2 其他的daplink或者jlink</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8IDE%E6%9D%A5%E8%B0%83%E8%AF%95"><span class="nav-number">4.2.2.2.1.</span> <span class="nav-text">使用IDE来调试</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8pico-generator%E7%94%9F%E6%88%90%E5%B7%A5%E7%A8%8B"><span class="nav-number">4.2.2.2.2.</span> <span class="nav-text">使用pico-generator生成工程</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
